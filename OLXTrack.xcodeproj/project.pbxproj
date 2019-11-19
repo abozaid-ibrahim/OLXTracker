@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -22,6 +22,12 @@
 		6CB073752384415B0021B0E4 /* DictionaryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB073722384415B0021B0E4 /* DictionaryExtension.swift */; };
 		6CB073762384415B0021B0E4 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB073732384415B0021B0E4 /* Logger.swift */; };
 		6CB073772384415B0021B0E4 /* DataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB073742384415B0021B0E4 /* DataExtension.swift */; };
+		6CB073792384588F0021B0E4 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB073782384588F0021B0E4 /* Observable.swift */; };
+		6CB0737C23845DC60021B0E4 /* StaticCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB0737B23845DC60021B0E4 /* StaticCategories.swift */; };
+		6CB0737F23845E1D0021B0E4 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB0737D23845E1D0021B0E4 /* CategoriesViewController.swift */; };
+		6CB0738023845E1D0021B0E4 /* CategoriesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6CB0737E23845E1D0021B0E4 /* CategoriesViewController.xib */; };
+		6CB0738423845EB60021B0E4 /* CategoriesApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB0738323845EB60021B0E4 /* CategoriesApi.swift */; };
+		6CB0738A238460F00021B0E4 /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB07389238460F00021B0E4 /* CategoryModel.swift */; };
 		6ED3F8A55341581DB417DEE1 /* Pods_OLXTrack_OLXTrackUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF27AE9F716FCCAA1BF9DFC3 /* Pods_OLXTrack_OLXTrackUITests.framework */; };
 		C1B32B5870C945A38C232286 /* Pods_OLXTrackTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6584797C67AE42B35639F428 /* Pods_OLXTrackTests.framework */; };
 		DA615B3D572F47F87FCD0CE2 /* Pods_OLXTrack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C728DCC8A984EE68EC07E36 /* Pods_OLXTrack.framework */; };
@@ -68,6 +74,12 @@
 		6CB073722384415B0021B0E4 /* DictionaryExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryExtension.swift; sourceTree = "<group>"; };
 		6CB073732384415B0021B0E4 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		6CB073742384415B0021B0E4 /* DataExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataExtension.swift; sourceTree = "<group>"; };
+		6CB073782384588F0021B0E4 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		6CB0737B23845DC60021B0E4 /* StaticCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticCategories.swift; sourceTree = "<group>"; };
+		6CB0737D23845E1D0021B0E4 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
+		6CB0737E23845E1D0021B0E4 /* CategoriesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoriesViewController.xib; sourceTree = "<group>"; };
+		6CB0738323845EB60021B0E4 /* CategoriesApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesApi.swift; sourceTree = "<group>"; };
+		6CB07389238460F00021B0E4 /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
 		6EB96FD7C5075F7DABD7F476 /* Pods-OLXTrackTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OLXTrackTests.release.xcconfig"; path = "Target Support Files/Pods-OLXTrackTests/Pods-OLXTrackTests.release.xcconfig"; sourceTree = "<group>"; };
 		7A6DB5787133B093619FED1A /* Pods-OLXTrack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OLXTrack.release.xcconfig"; path = "Target Support Files/Pods-OLXTrack/Pods-OLXTrack.release.xcconfig"; sourceTree = "<group>"; };
 		7FB38CCEFEFE3C79923EB5DC /* Pods-OLXTrack-OLXTrackUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OLXTrack-OLXTrackUITests.release.xcconfig"; path = "Target Support Files/Pods-OLXTrack-OLXTrackUITests/Pods-OLXTrack-OLXTrackUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -125,7 +137,6 @@
 				BCC940431E274DDE53AA675F /* Pods-OLXTrackTests.debug.xcconfig */,
 				6EB96FD7C5075F7DABD7F476 /* Pods-OLXTrackTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -196,6 +207,7 @@
 		6CB0736323843F070021B0E4 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				6CB0737A23845DB90021B0E4 /* categories */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -226,8 +238,21 @@
 				6CB073742384415B0021B0E4 /* DataExtension.swift */,
 				6CB073722384415B0021B0E4 /* DictionaryExtension.swift */,
 				6CB073732384415B0021B0E4 /* Logger.swift */,
+				6CB073782384588F0021B0E4 /* Observable.swift */,
 			);
 			path = "swifter swift";
+			sourceTree = "<group>";
+		};
+		6CB0737A23845DB90021B0E4 /* categories */ = {
+			isa = PBXGroup;
+			children = (
+				6CB0738323845EB60021B0E4 /* CategoriesApi.swift */,
+				6CB0737B23845DC60021B0E4 /* StaticCategories.swift */,
+				6CB0737D23845E1D0021B0E4 /* CategoriesViewController.swift */,
+				6CB0737E23845E1D0021B0E4 /* CategoriesViewController.xib */,
+				6CB07389238460F00021B0E4 /* CategoryModel.swift */,
+			);
+			path = categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,6 +365,7 @@
 			files = (
 				6CB0733F23843E070021B0E4 /* LaunchScreen.storyboard in Resources */,
 				6CB0733C23843E070021B0E4 /* Assets.xcassets in Resources */,
+				6CB0738023845E1D0021B0E4 /* CategoriesViewController.xib in Resources */,
 				6CB0733A23843E060021B0E4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -451,16 +477,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CB073792384588F0021B0E4 /* Observable.swift in Sources */,
 				6CB0736C23843F950021B0E4 /* Pageable.swift in Sources */,
 				6CB0737023843F950021B0E4 /* APIClient.swift in Sources */,
 				6CB0736F23843F950021B0E4 /* AlamofireClient.swift in Sources */,
 				6CB0733723843E060021B0E4 /* ViewController.swift in Sources */,
 				6CB073762384415B0021B0E4 /* Logger.swift in Sources */,
+				6CB0738423845EB60021B0E4 /* CategoriesApi.swift in Sources */,
 				6CB0733523843E060021B0E4 /* AppDelegate.swift in Sources */,
+				6CB0737C23845DC60021B0E4 /* StaticCategories.swift in Sources */,
 				6CB0736D23843F950021B0E4 /* RequestBuilder.swift in Sources */,
 				6CB0736E23843F950021B0E4 /* NetworkError.swift in Sources */,
 				6CB073752384415B0021B0E4 /* DictionaryExtension.swift in Sources */,
 				6CB073772384415B0021B0E4 /* DataExtension.swift in Sources */,
+				6CB0738A238460F00021B0E4 /* CategoryModel.swift in Sources */,
+				6CB0737F23845E1D0021B0E4 /* CategoriesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

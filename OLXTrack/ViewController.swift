@@ -7,14 +7,18 @@
 //
 
 import UIKit
-
 class ViewController: UIViewController {
 
+   
+    let network = HTTPClient()
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        let obj: Observable<CategoryModel?> =  network.getData(of: CategoriesApi.cats(key: "", manufacturer: "", page: 0, pageSize: 12))
+        
+        
+        log(.info,obj)
     }
-
+    
 
 }
 

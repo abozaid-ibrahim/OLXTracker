@@ -9,7 +9,7 @@
 import Foundation
 
 public protocol RequestBuilder {
-    var baseURL: URL { get }
+    var baseURL: String { get }
 
     var path: String { get }
 
@@ -24,7 +24,10 @@ extension RequestBuilder {
         return URL(string: "\(baseURL)\(path)")!
     }
 
-    var path: String { return "" }
+    var baseURL: String {
+        return APIConstants.baseURL
+    }
+
     var task: URLRequest {
         var items = [URLQueryItem]()
         var myURL = URLComponents(string: endpoint.absoluteString)
@@ -43,6 +46,7 @@ public enum HttpMethod: String {
 }
 
 struct APIConstants {
-    static let baseURL = "https://serpapi.com/search"
+    static let baseURL = "https://serpapi.com/"
     static let apiKey = ""
+    static let timeout: TimeInterval = 30
 }

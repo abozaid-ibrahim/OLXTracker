@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ItemDetailsController: UIViewController {
+final class ItemDetailsController: UIViewController {
     @IBOutlet private var coverImageView: UIImageView!
     @IBOutlet private var quoteLbl: UILabel!
     var viewModel: ItemViewModel!
@@ -18,7 +18,7 @@ class ItemDetailsController: UIViewController {
     }
 
     func bindToViewModel() {
-        self.navigationItem.largeTitleDisplayMode = .always
+        navigationItem.largeTitleDisplayMode = .always
         viewModel.title.subscribe { [unowned self] value in
             self.title = value
         }

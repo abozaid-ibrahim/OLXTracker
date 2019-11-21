@@ -36,7 +36,6 @@
 		6CB073792384588F0021B0E4 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB073782384588F0021B0E4 /* Observable.swift */; };
 		6CB0737C23845DC60021B0E4 /* StaticCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB0737B23845DC60021B0E4 /* StaticCategories.swift */; };
 		6CB0737F23845E1D0021B0E4 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB0737D23845E1D0021B0E4 /* CategoriesViewController.swift */; };
-		6CB0738023845E1D0021B0E4 /* CategoriesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6CB0737E23845E1D0021B0E4 /* CategoriesViewController.xib */; };
 		6CB0738423845EB60021B0E4 /* CategoryItemsApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB0738323845EB60021B0E4 /* CategoryItemsApi.swift */; };
 		6CB0738F23846CBC0021B0E4 /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB0738D23846CBC0021B0E4 /* Navigator.swift */; };
 		6CB0739023846CBC0021B0E4 /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB0738E23846CBC0021B0E4 /* Destination.swift */; };
@@ -47,6 +46,7 @@
 		6CB0739E23846EFF0021B0E4 /* BundleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB0739B23846EFF0021B0E4 /* BundleExtension.swift */; };
 		6CB0739F23846EFF0021B0E4 /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB0739C23846EFF0021B0E4 /* Loadable.swift */; };
 		6CB073A023846EFF0021B0E4 /* UIView+Constrains.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB0739D23846EFF0021B0E4 /* UIView+Constrains.swift */; };
+		6CC05A842386B68A00E19766 /* CategoriesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6CC05A832386B68A00E19766 /* CategoriesViewController.xib */; };
 		6ED3F8A55341581DB417DEE1 /* Pods_OLXTrack_OLXTrackUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF27AE9F716FCCAA1BF9DFC3 /* Pods_OLXTrack_OLXTrackUITests.framework */; };
 		C1B32B5870C945A38C232286 /* Pods_OLXTrackTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6584797C67AE42B35639F428 /* Pods_OLXTrackTests.framework */; };
 		DA615B3D572F47F87FCD0CE2 /* Pods_OLXTrack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C728DCC8A984EE68EC07E36 /* Pods_OLXTrack.framework */; };
@@ -107,7 +107,6 @@
 		6CB073782384588F0021B0E4 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		6CB0737B23845DC60021B0E4 /* StaticCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticCategories.swift; sourceTree = "<group>"; };
 		6CB0737D23845E1D0021B0E4 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
-		6CB0737E23845E1D0021B0E4 /* CategoriesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoriesViewController.xib; sourceTree = "<group>"; };
 		6CB0738323845EB60021B0E4 /* CategoryItemsApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryItemsApi.swift; sourceTree = "<group>"; };
 		6CB0738D23846CBC0021B0E4 /* Navigator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
 		6CB0738E23846CBC0021B0E4 /* Destination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Destination.swift; sourceTree = "<group>"; };
@@ -118,6 +117,7 @@
 		6CB0739B23846EFF0021B0E4 /* BundleExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BundleExtension.swift; sourceTree = "<group>"; };
 		6CB0739C23846EFF0021B0E4 /* Loadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
 		6CB0739D23846EFF0021B0E4 /* UIView+Constrains.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Constrains.swift"; sourceTree = "<group>"; };
+		6CC05A832386B68A00E19766 /* CategoriesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoriesViewController.xib; sourceTree = "<group>"; };
 		6EB96FD7C5075F7DABD7F476 /* Pods-OLXTrackTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OLXTrackTests.release.xcconfig"; path = "Target Support Files/Pods-OLXTrackTests/Pods-OLXTrackTests.release.xcconfig"; sourceTree = "<group>"; };
 		7A6DB5787133B093619FED1A /* Pods-OLXTrack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OLXTrack.release.xcconfig"; path = "Target Support Files/Pods-OLXTrack/Pods-OLXTrack.release.xcconfig"; sourceTree = "<group>"; };
 		7FB38CCEFEFE3C79923EB5DC /* Pods-OLXTrack-OLXTrackUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OLXTrack-OLXTrackUITests.release.xcconfig"; path = "Target Support Files/Pods-OLXTrack-OLXTrackUITests/Pods-OLXTrack-OLXTrackUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -333,7 +333,7 @@
 			isa = PBXGroup;
 			children = (
 				6CB0737D23845E1D0021B0E4 /* CategoriesViewController.swift */,
-				6CB0737E23845E1D0021B0E4 /* CategoriesViewController.xib */,
+				6CC05A832386B68A00E19766 /* CategoriesViewController.xib */,
 				6C26C9AE23855574004CDDE4 /* CategoryCollectionCell.swift */,
 				6C26C9AF23855574004CDDE4 /* CategoryCollectionCell.xib */,
 				6CB0737B23845DC60021B0E4 /* StaticCategories.swift */,
@@ -472,10 +472,10 @@
 			files = (
 				6CB0733F23843E070021B0E4 /* LaunchScreen.storyboard in Resources */,
 				6C26C9BA238574A7004CDDE4 /* ItemDetailsController.xib in Resources */,
+				6CC05A842386B68A00E19766 /* CategoriesViewController.xib in Resources */,
 				6C26C9BE238574C4004CDDE4 /* CategoryItemsController.xib in Resources */,
 				6C26C9B123855574004CDDE4 /* CategoryCollectionCell.xib in Resources */,
 				6CB0733C23843E070021B0E4 /* Assets.xcassets in Resources */,
-				6CB0738023845E1D0021B0E4 /* CategoriesViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

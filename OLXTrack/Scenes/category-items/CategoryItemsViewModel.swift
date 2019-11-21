@@ -20,7 +20,7 @@ protocol CategoryItemsViewModel {
 
 struct CategoryItemsGridViewModel: CategoryItemsViewModel {
     var title: MObservable<String> = MObservable()
-    
+
     var categoryItems: MObservable<[CategorySearchItem]> = MObservable()
 
     // MARK: private state
@@ -39,7 +39,7 @@ struct CategoryItemsGridViewModel: CategoryItemsViewModel {
     init(apiClient: ApiClient = HTTPClient(), category: CategoryItem) {
         network = apiClient
         self.category = category
-        self.title.next(category.title)
+        title.next(category.title)
     }
 
     func showDetails(of item: CategorySearchItem) {
@@ -67,7 +67,7 @@ struct CategoryItemsGridViewModel: CategoryItemsViewModel {
             let model = try decoder.decode(SearchResultJsonResponse.self, from: data)
             categoryItems.next(model.cameras?.camera ?? [])
         } catch {
-            log(.error,error)
+            log(.error, error)
             self.error.next(NetworkFailure.failedToParseData)
         }
     }

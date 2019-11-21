@@ -30,9 +30,9 @@ private extension CategoryItemsController {
     }
 
     func bindToViewModel() {
-viewModel.title.subscribe { [unowned self] value in
-    self.title = value
-}
+        viewModel.title.subscribe { [unowned self] value in
+            self.title = value
+        }
         viewModel.categoryItems.subscribe { [unowned self] value in
             DispatchQueue.main.async { [unowned self] in
                 self.items = value ?? []
@@ -69,7 +69,7 @@ extension CategoryItemsController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: CategoryCollectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionCell.identifier, for: indexPath) as! CategoryCollectionCell
         let model = items[collectionView.itemIndex(of: indexPath, in: itemsPerSection)]
-        cell.setData(with:(model.name?.content ?? "",model.images?.small?.content ?? ""))
+        cell.setData(with: (model.name?.content ?? "", model.images?.small?.content ?? ""))
         return cell
     }
 }
@@ -81,25 +81,19 @@ extension CategoryItemsController: UICollectionViewDelegate {
 }
 
 extension CategoryItemsController: UICollectionViewDelegateFlowLayout {
-    var linePadding: CGFloat { return CGFloat(8) }
-    var sectionPadding: CGFloat { return CGFloat(12) }
+    var itemPadding: CGFloat { return CGFloat(6) }
 
     var itemSize: CGSize {
-        let cellWidth = collectionView.bounds.width / CGFloat(itemsPerSection)
-        let margin = CGFloat(1) / CGFloat(itemsPerSection) * linePadding
-
-        return CGSize(width: cellWidth - margin, height: cellWidth)
+        let margins = CGFloat(itemsPerSection + 1) * itemPadding
+        let cellWidth = (collectionView.bounds.width - margins) / CGFloat(itemsPerSection)
+        return CGSize(width: cellWidth, height: cellWidth)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return itemSize
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return sectionPadding
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return linePadding
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return .init(top: itemPadding, left: itemPadding, bottom: 0, right: itemPadding)
     }
 }

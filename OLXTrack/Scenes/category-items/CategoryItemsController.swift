@@ -1,19 +1,21 @@
 //
-//  CategoriesViewController.swift
+//  CategoryItemsController.swift
 //  OLXTrack
 //
-//  Created by abuzeid on 11/19/19.
+//  Created by abuzeid on 11/20/19.
 //  Copyright © 2019 abuzeid. All rights reserved.
 //
+
 import UIKit
 
-final class CategoriesViewController: UIViewController {
+final class CategoryItemsController: UIViewController {
     @IBOutlet private var collectionView: UICollectionView!
-    var viewModel: CategoriesViewModel!
-    private var items: [CategoryItem] = []
+    @IBOutlet private var errorLbl: UILabel!
+    var viewModel: CategoryItemsViewModel!
+
+    private var items: [CategorySearchItem] = []
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Categories"
         configureCollectionView()
         bindToViewModel()
         viewModel.loadData()
@@ -22,22 +24,39 @@ final class CategoriesViewController: UIViewController {
 
 // MARK: CategoriesViewController (Private)
 
-private extension CategoriesViewController {
+private extension CategoryItemsController {
     func configureCollectionView() {
         collectionView.registerNib(CategoryCollectionCell.identifier)
     }
 
     func bindToViewModel() {
-        viewModel.categories.subscribe { [unowned self] cats in
-            self.items = cats ?? []
-            DispatchQueue.main.async {
+        viewModel.title.subscribe { [unowned self] value in
+            self.title = value
+        }
+        viewModel.categoryItems.subscribe { [unowned self] value in
+            DispatchQueue.main.async { [unowned self] in
+                self.items = value ?? []
                 self.collectionView.reloadData()
             }
+        }
+        viewModel.error.subscribe { [unowned self] error in
+            DispatchQueue.main.async { [unowned self] in
+                self.updateError(error)
+            }
+        }
+    }
+
+    private func updateError(_ error: Error?) {
+        if let desc = error?.localizedDescription {
+            errorLbl.text = desc
+            errorLbl.isHidden = false
+        } else {
+            errorLbl.isHidden = false
         }
     }
 }
 
-extension CategoriesViewController: UICollectionViewDataSource {
+extension CategoryItemsController: UICollectionViewDataSource {
     var itemsPerSection: Int { return 2 }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return collectionView.numberOfItems(in: section, count: items.count, itms: itemsPerSection)
@@ -50,18 +69,18 @@ extension CategoriesViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: CategoryCollectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionCell.identifier, for: indexPath) as! CategoryCollectionCell
         let model = items[collectionView.itemIndex(of: indexPath, in: itemsPerSection)]
-        cell.setData(with: (model.title, model.thumbnail))
+        cell.setData(with: (model.name?.content ?? "", model.images?.small?.content ?? ""))
         return cell
     }
 }
 
-extension CategoriesViewController: UICollectionViewDelegate {
+extension CategoryItemsController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        viewModel.showItems(of: items[collectionView.itemIndex(of: indexPath, in: itemsPerSection)])
+        viewModel.showDetails(of: items[indexPath.row])
     }
 }
 
-extension CategoriesViewController: UICollectionViewDelegateFlowLayout {
+extension CategoryItemsController: UICollectionViewDelegateFlowLayout {
     var itemPadding: CGFloat { return CGFloat(6) }
 
     var itemSize: CGSize {

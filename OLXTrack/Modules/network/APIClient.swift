@@ -7,37 +7,39 @@
 //
 import Foundation
 protocol ApiClient {
-    func getData<T: Decodable>(of request: RequestBuilder) -> Observable<T?>
+    func getData(of request: RequestBuilder, completionHandler: @escaping (Result<Data, Error>) -> Void)
 }
 
-/// api handler, wrapper for the Url session
 final class HTTPClient: ApiClient {
-    func getData<T: Decodable>(of request: RequestBuilder) -> Observable<T?> {
-        log(.info, String(describing: request.task.url))
-        let x: T? = excute(request).value.map { $0.toModel() } ?? nil
-        let obs = Observable<T?>(nil)
-        obs.next(x)
-        return obs
-    }
-    
-    /// fire the http request and return observable of the data or emit an error
-    /// - Parameter request: the request that have all the details that need to call the remote api
-    private func excute(_ request: RequestBuilder) -> Observable<Data?> {
-        let obs = Observable<Data?>(nil)
+    func getData(of request: RequestBuilder, completionHandler: @escaping (Result<Data, Error>) -> Void) {
         let task = URLSession.shared.dataTask(with: request.task) { data, response, error in
+            log(.info, request.description)
+            log(.info, data.toString)
+
             if let error = error {
-                //                    observer.onError(error)
+                log(.error, error.localizedDescription)
+                completionHandler(.failure(error))
                 return
             }
             guard let httpResponse = response as? HTTPURLResponse,
                 (200 ... 299).contains(httpResponse.statusCode) else {
-                    //                    observer.onError(NetworkFailure.generalFailure)
-                    return
+                log(.error, "Status Code:\((response as? HTTPURLResponse)?.statusCode ?? 0)")
+                completionHandler(.failure(NetworkFailure.unAcceptedResponse("out of success response range")))
+                return
             }
-            log(.info,String(data: data!, encoding: .utf8) ?? "")
-            obs.next(data)
+            if let _data = data {
+                completionHandler(.success(_data))
+            } else {
+                completionHandler(.failure(NetworkFailure.noData))
+            }
         }
         task.resume()
-        return obs
+    }
+}
+
+extension Optional where Wrapped == Data {
+    var toString: String {
+        guard let empty = "".data(using: .utf8) else { return "" }
+        return String(data: self ?? empty, encoding: .utf8) ?? ""
     }
 }

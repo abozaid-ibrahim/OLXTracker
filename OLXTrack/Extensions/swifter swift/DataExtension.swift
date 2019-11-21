@@ -10,7 +10,9 @@ import Foundation
 extension Data {
     func toModel<T: Decodable>() -> T? {
         do {
-            return try JSONDecoder().decode(T.self, from: self)
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            return try decoder.decode(T.self, from: self)
         } catch {
             log(.error, ">>> parsing error \(error)")
             return nil

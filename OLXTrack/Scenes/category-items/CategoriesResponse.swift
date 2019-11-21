@@ -8,12 +8,7 @@
 
 import Foundation
 
-struct CategoryItem {
-    let id: Int
-    let visitsCount: Int
-    let title: String
-    let thumbnail: String
-}
+
 
 struct SearchResultJsonResponse: Codable {
     let cameras: Cameras?

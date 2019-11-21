@@ -22,7 +22,9 @@ struct CategoriesListViewModel: CategoriesViewModel {
     }
 
     func loadData() {
-        categories.next(dataRepository.defaultCategories)
+        DispatchQueue.global().async {
+            self.categories.next(self.dataRepository.getDefaultCategories())
+        }
     }
 
     func showItems(of cat: CategoryItem) {

@@ -47,6 +47,7 @@
 		6CB0739F23846EFF0021B0E4 /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB0739C23846EFF0021B0E4 /* Loadable.swift */; };
 		6CB073A023846EFF0021B0E4 /* UIView+Constrains.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB0739D23846EFF0021B0E4 /* UIView+Constrains.swift */; };
 		6CC05A842386B68A00E19766 /* CategoriesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6CC05A832386B68A00E19766 /* CategoriesViewController.xib */; };
+		6CC05A862386BC1B00E19766 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6CC05A852386BC1B00E19766 /* README.md */; };
 		6ED3F8A55341581DB417DEE1 /* Pods_OLXTrack_OLXTrackUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF27AE9F716FCCAA1BF9DFC3 /* Pods_OLXTrack_OLXTrackUITests.framework */; };
 		C1B32B5870C945A38C232286 /* Pods_OLXTrackTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6584797C67AE42B35639F428 /* Pods_OLXTrackTests.framework */; };
 		DA615B3D572F47F87FCD0CE2 /* Pods_OLXTrack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C728DCC8A984EE68EC07E36 /* Pods_OLXTrack.framework */; };
@@ -118,6 +119,7 @@
 		6CB0739C23846EFF0021B0E4 /* Loadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
 		6CB0739D23846EFF0021B0E4 /* UIView+Constrains.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Constrains.swift"; sourceTree = "<group>"; };
 		6CC05A832386B68A00E19766 /* CategoriesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoriesViewController.xib; sourceTree = "<group>"; };
+		6CC05A852386BC1B00E19766 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		6EB96FD7C5075F7DABD7F476 /* Pods-OLXTrackTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OLXTrackTests.release.xcconfig"; path = "Target Support Files/Pods-OLXTrackTests/Pods-OLXTrackTests.release.xcconfig"; sourceTree = "<group>"; };
 		7A6DB5787133B093619FED1A /* Pods-OLXTrack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OLXTrack.release.xcconfig"; path = "Target Support Files/Pods-OLXTrack/Pods-OLXTrack.release.xcconfig"; sourceTree = "<group>"; };
 		7FB38CCEFEFE3C79923EB5DC /* Pods-OLXTrack-OLXTrackUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OLXTrack-OLXTrackUITests.release.xcconfig"; path = "Target Support Files/Pods-OLXTrack-OLXTrackUITests/Pods-OLXTrack-OLXTrackUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 		6CB0732823843E060021B0E4 = {
 			isa = PBXGroup;
 			children = (
+				6CC05A852386BC1B00E19766 /* README.md */,
 				6CB0733323843E060021B0E4 /* OLXTrack */,
 				6CB0734823843E070021B0E4 /* OLXTrackTests */,
 				6CB0735323843E070021B0E4 /* OLXTrackUITests */,
@@ -473,6 +476,7 @@
 				6CB0733F23843E070021B0E4 /* LaunchScreen.storyboard in Resources */,
 				6C26C9BA238574A7004CDDE4 /* ItemDetailsController.xib in Resources */,
 				6CC05A842386B68A00E19766 /* CategoriesViewController.xib in Resources */,
+				6CC05A862386BC1B00E19766 /* README.md in Resources */,
 				6C26C9BE238574C4004CDDE4 /* CategoryItemsController.xib in Resources */,
 				6C26C9B123855574004CDDE4 /* CategoryCollectionCell.xib in Resources */,
 				6CB0733C23843E070021B0E4 /* Assets.xcassets in Resources */,

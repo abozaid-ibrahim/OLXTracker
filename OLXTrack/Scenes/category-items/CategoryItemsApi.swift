@@ -1,5 +1,5 @@
 //
-//  ModelApi.swift
+//  CategoryApi.swift
 //  OLXTrack
 //
 //  Created by abuzeid on 11/19/19.
@@ -10,24 +10,27 @@ import Foundation
 
 import Foundation
 
-enum CategoriesApi {
-    case cats(key: String, manufacturer: String, page: Int, pageSize: Int)
-    case items(cat: String, page:Page)
+enum CategoryApi {
+//    case cats(key: String, manufacturer: String, page: Int, pageSize: Int)
+    case items(cat: String, page: Page)
 }
 
-extension CategoriesApi: RequestBuilder {
+extension CategoryApi: RequestBuilder {
     var parameters: [String: Any] {
-        return ["q": "Apple"]
+        switch self {
+        case .items(let cat, let page):
+            return ["method": "flickr.cameras.getBrandModels", "api_key": APIConstants.apiKey, "brand": cat, "format": "json", "nojsoncallback": "1"]
+        }
     }
-    
+
     public var path: String {
-        return "search"
+        return ""
     }
-    
+
     public var method: HttpMethod {
         return .get
     }
-    
+
     public var headers: [String: String]? {
         return ["Content-Type": "application/json"]
     }

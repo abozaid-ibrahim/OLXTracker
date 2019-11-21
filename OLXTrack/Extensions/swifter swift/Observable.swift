@@ -9,23 +9,27 @@
 import Foundation
 /// An Observable will give  any  subscriber  the most  recent element
 /// and  everything that  is  emitted  by that  sequence after the  subscription  happened.
-class Observable<T> {
-    private var observers = [UUID: (T) -> Void]()
-    private var _value: T {
+class MObservable<T> {
+    private var observers = [UUID: (T?) -> Void]()
+    private var _value: T? {
         didSet {
             observers.values.forEach { $0(_value) }
         }
     }
 
-    var value: T {
+    var value: T? {
         return _value
     }
 
-    init(_ value: T) {
+    init(_ value: T?) {
         self._value = value
     }
 
-    func subscribe(_ observer: @escaping ((T) -> Void)) {
+    init() {
+        // nothing todo
+    }
+
+    func subscribe(_ observer: @escaping ((T?) -> Void)) {
         observers[UUID()] = observer
         observer(value)
     }

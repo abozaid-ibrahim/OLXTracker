@@ -1,8 +1,8 @@
 //
 //  Destination.swift
-//  PersonalityTest
+//  OLXTrack
 //
-//  Created by abuzeid on 11/10/19.
+//  Created by abuzeid on 11/19/19.
 //  Copyright © 2019 abuzeid. All rights reserved.
 //
 
@@ -10,14 +10,17 @@ import Foundation
 import UIKit
 enum Destination {
     case categories,
-        questions(QCategory)
+        categoryItems(CategoryItem),
+        itemDetails(CategorySearchItem)
 
     func controller() -> UIViewController {
         switch self {
         case .categories:
             return getCategoriesView()
-        case let .questions(cat):
-            return getQuestionsView(for: cat)
+        case .categoryItems(let category):
+            return getCategoryItemsView(item: category)
+        case .itemDetails(let item):
+            return getItemDetailsView(item: item)
         }
     }
 }

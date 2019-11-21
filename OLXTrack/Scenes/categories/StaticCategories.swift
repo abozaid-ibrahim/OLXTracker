@@ -7,6 +7,6 @@
 //
 
 import Foundation
-enum DefaultCategories: String, CaseIterable {
+enum QCategory: String, CaseIterable {
     case apple, olx, google, facebook, twitter, linkedin
 }

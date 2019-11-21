@@ -6,7 +6,10 @@ target 'OLXTrack' do
   use_frameworks!
 
     pod 'SwiftLint'
-
+#    pod 'RxSwift'
+#    pod 'RxCocoa'
+#    pod 'RxOptional'
+  pod 'Kingfisher'
   target 'OLXTrackTests' do
     inherit! :search_paths
      pod 'SpecLeaks'

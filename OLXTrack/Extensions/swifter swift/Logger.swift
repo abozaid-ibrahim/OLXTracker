@@ -18,8 +18,12 @@ enum LoggingLevels {
     }
 }
 
-func log(_ level: LoggingLevels, _ value: Any?...) {
+func log(_ level: LoggingLevels, _ value: Any?) {
     #if DEBUG
-        print("->\(level.value) \(value)")
+    if let _value = value {
+        print("->\(level.value) \(_value)")
+    } else {
+        print("->\(level.value) nil")
+    }
     #endif
 }

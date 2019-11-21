@@ -6,13 +6,14 @@
 //  Copyright © 2019 abuzeid. All rights reserved.
 //
 
+import Kingfisher
 import UIKit
-
-class CategoryCollectionCell: UICollectionViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+final class CategoryCollectionCell: UICollectionViewCell, UICell {
+    typealias Model = (title: String, image: String)
+    @IBOutlet private var coverImageView: UIImageView!
+    @IBOutlet private var titleLbl: UILabel!
+    func setData(with model: Model) {
+        titleLbl.text = model.title
+        coverImageView.setImage(name: model.image)
     }
-
 }

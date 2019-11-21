@@ -8,14 +8,14 @@
 
 import UIKit
 
-class UIImageView_Image: UIView {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+extension UIImageView {
+    func setImage(name: String) {
+        log(.info,name)
+        if let url = URL(string: name) {
+            kf.setImage(with: url)
+        } else {
+            image = UIImage(named: name)
+        }
     }
-    */
-
 }

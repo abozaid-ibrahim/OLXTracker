@@ -1,4 +1,7 @@
 PODS:
+  - Kingfisher (5.10.0):
+    - Kingfisher/Core (= 5.10.0)
+  - Kingfisher/Core (5.10.0)
   - Nimble (8.0.4)
   - Quick (2.2.0)
   - SpecLeaks (0.1.8):
@@ -7,6 +10,7 @@ PODS:
   - SwiftLint (0.37.0)
 
 DEPENDENCIES:
+  - Kingfisher
   - Nimble
   - Quick
   - SpecLeaks
@@ -14,17 +18,19 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - Kingfisher
     - Nimble
     - Quick
     - SpecLeaks
     - SwiftLint
 
 SPEC CHECKSUMS:
+  Kingfisher: 0bf6eae7c2193f15719915fecb7c2c1c03855f3d
   Nimble: 18d5360282923225d62b09d781f63abc1a0111fc
   Quick: 7fb19e13be07b5dfb3b90d4f9824c855a11af40e
   SpecLeaks: 0fa048f06b1adb36d8d3e86e039b5f67bf74bb06
   SwiftLint: c078a14d7d7ade75e5507795d185e3da41d844d2
 
-PODFILE CHECKSUM: bd14e197bfe59a63459375620aac5d64e1ce9b2b
+PODFILE CHECKSUM: f87760391844d7abda1ed3dd1c41cba23f94e899
 
 COCOAPODS: 1.8.4

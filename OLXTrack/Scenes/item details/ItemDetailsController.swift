@@ -9,22 +9,24 @@
 import UIKit
 
 class ItemDetailsController: UIViewController {
-
+    @IBOutlet private var coverImageView: UIImageView!
+    @IBOutlet private var quoteLbl: UILabel!
+    var viewModel: ItemViewModel!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        bindToViewModel()
     }
 
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func bindToViewModel() {
+        self.navigationItem.largeTitleDisplayMode = .always
+        viewModel.title.subscribe { [unowned self] value in
+            self.title = value
+        }
+        viewModel.quote.subscribe { [unowned self] value in
+            self.quoteLbl.text = value
+        }
+        viewModel.image.subscribe { [unowned self] value in
+            self.coverImageView.setImage(name: value ?? "")
+        }
     }
-    */
-
 }

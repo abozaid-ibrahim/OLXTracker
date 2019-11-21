@@ -1,5 +1,5 @@
 //
-//  Destination+Categories.swift
+//  Destination+ItemDetails.swift
 //  OLXTrack
 //
 //  Created by abuzeid on 11/20/19.
@@ -9,9 +9,9 @@
 import Foundation
 import UIKit
 extension Destination {
-    func getCategoriesView() -> UIViewController {
-        let categoriesView = CategoriesViewController()
-        categoriesView.viewModel = CategoriesListViewModel()
+    func getItemDetailsView(item:CategorySearchItem) -> UIViewController {
+        let categoriesView = ItemDetailsController()
+        categoriesView.viewModel = ItemDetailsViewModel(item: item)
         return categoriesView
     }
 }

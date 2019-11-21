@@ -8,6 +8,13 @@
 
 import UIKit
 
-class UICell: UICollectionViewCell {
-    
+protocol UICell:class {
+    associatedtype Model
+    func setData(with model: Model)
+    static var identifier:String{get}
+}
+extension UICell{
+    static var identifier:String {
+        return String(describing: self)
+    }
 }

@@ -53,6 +53,7 @@
 		6CC05A8E2386D29D00E19766 /* SQLiteDatabase+CRUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC05A8D2386D29D00E19766 /* SQLiteDatabase+CRUD.swift */; };
 		6CC05A902386D66B00E19766 /* SQLTableInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC05A8F2386D66B00E19766 /* SQLTableInfo.swift */; };
 		6CC05A922386D7AD00E19766 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC05A912386D7AD00E19766 /* Category.swift */; };
+		6CC05A942386E99F00E19766 /* DefaultCategories.json in Resources */ = {isa = PBXBuildFile; fileRef = 6CC05A932386E99F00E19766 /* DefaultCategories.json */; };
 		6ED3F8A55341581DB417DEE1 /* Pods_OLXTrack_OLXTrackUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF27AE9F716FCCAA1BF9DFC3 /* Pods_OLXTrack_OLXTrackUITests.framework */; };
 		C1B32B5870C945A38C232286 /* Pods_OLXTrackTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6584797C67AE42B35639F428 /* Pods_OLXTrackTests.framework */; };
 		DA615B3D572F47F87FCD0CE2 /* Pods_OLXTrack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C728DCC8A984EE68EC07E36 /* Pods_OLXTrack.framework */; };
@@ -130,6 +131,7 @@
 		6CC05A8D2386D29D00E19766 /* SQLiteDatabase+CRUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SQLiteDatabase+CRUD.swift"; sourceTree = "<group>"; };
 		6CC05A8F2386D66B00E19766 /* SQLTableInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLTableInfo.swift; sourceTree = "<group>"; };
 		6CC05A912386D7AD00E19766 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		6CC05A932386E99F00E19766 /* DefaultCategories.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DefaultCategories.json; sourceTree = "<group>"; };
 		6EB96FD7C5075F7DABD7F476 /* Pods-OLXTrackTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OLXTrackTests.release.xcconfig"; path = "Target Support Files/Pods-OLXTrackTests/Pods-OLXTrackTests.release.xcconfig"; sourceTree = "<group>"; };
 		7A6DB5787133B093619FED1A /* Pods-OLXTrack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OLXTrack.release.xcconfig"; path = "Target Support Files/Pods-OLXTrack/Pods-OLXTrack.release.xcconfig"; sourceTree = "<group>"; };
 		7FB38CCEFEFE3C79923EB5DC /* Pods-OLXTrack-OLXTrackUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OLXTrack-OLXTrackUITests.release.xcconfig"; path = "Target Support Files/Pods-OLXTrack-OLXTrackUITests/Pods-OLXTrack-OLXTrackUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -354,6 +356,7 @@
 				6CB0739423846DA90021B0E4 /* Destination+Categories.swift */,
 				6CB0739323846DA90021B0E4 /* CategoryRepo.swift */,
 				6CC05A912386D7AD00E19766 /* Category.swift */,
+				6CC05A932386E99F00E19766 /* DefaultCategories.json */,
 			);
 			path = categories;
 			sourceTree = "<group>";
@@ -492,6 +495,7 @@
 				6C26C9BA238574A7004CDDE4 /* ItemDetailsController.xib in Resources */,
 				6CC05A842386B68A00E19766 /* CategoriesViewController.xib in Resources */,
 				6CC05A862386BC1B00E19766 /* README.md in Resources */,
+				6CC05A942386E99F00E19766 /* DefaultCategories.json in Resources */,
 				6C26C9BE238574C4004CDDE4 /* CategoryItemsController.xib in Resources */,
 				6C26C9B123855574004CDDE4 /* CategoryCollectionCell.xib in Resources */,
 				6CB0733C23843E070021B0E4 /* Assets.xcassets in Resources */,

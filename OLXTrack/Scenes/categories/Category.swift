@@ -7,12 +7,12 @@
 //
 
 import Foundation
-struct CategoryItem {
+struct CategoryItem: Decodable {
     let id: Int
     var visitsCount: Int
     let title: String
     let thumbnail: String
-    mutating func IncrementVisits(){
+    mutating func IncrementVisits() {
         self.visitsCount += 1
     }
 }

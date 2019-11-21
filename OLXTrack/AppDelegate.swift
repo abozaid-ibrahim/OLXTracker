@@ -29,7 +29,8 @@ class StartupLogicCommand {
         let repo = CategoryRepo()
         if repo.getDefaultCategories().isEmpty {
             repo.createTable()
-            for item in repo.categories {
+            let repos = Bundle.main.decode([CategoryItem].self,from:"DefaultCategories.json")
+            for item in repos {
                 repo.insert(cat: item)
             }
         }

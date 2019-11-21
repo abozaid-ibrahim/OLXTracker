@@ -9,9 +9,12 @@
 import Foundation
 struct CategoryItem {
     let id: Int
-    let visitsCount: Int
+    var visitsCount: Int
     let title: String
     let thumbnail: String
+    mutating func IncrementVisits(){
+        self.visitsCount += 1
+    }
 }
 
 extension CategoryItem: SQLTable {

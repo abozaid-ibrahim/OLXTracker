@@ -14,7 +14,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
-        let _ = AppNavigator(window: window!)
+        _ = AppNavigator(window: window!)
+        StartupLogicCommand().excute()
         return true
+    }
+}
+
+class StartupLogicCommand {
+    func excute() {
+        check()
+    }
+
+    private func check() {
+        let repo = CategoryRepo()
+        if repo.getDefaultCategories().isEmpty {
+            repo.createTable()
+            for item in repo.categories {
+                repo.insert(cat: item)
+            }
+        }
     }
 }

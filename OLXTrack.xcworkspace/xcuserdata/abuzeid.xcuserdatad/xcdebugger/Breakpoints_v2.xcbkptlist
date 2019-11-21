@@ -3,4 +3,54 @@
    uuid = "8CF7C5D4-4B49-4535-82DD-C17E6DA4F376"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A92B46B6-6B2D-4912-8641-11DC1BC98F8D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OLXTrack/Scenes/categories/CategoriesViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "bindToViewModel()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A92B46B6-6B2D-4912-8641-11DC1BC98F8D - e9200a59184a6fbc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Array&lt;OLXTrack.CategoryItem&gt;&gt;) -&gt; () in OLXTrack.CategoriesViewController.(bindToViewModel in _DA0853871781A3A4D142BE6E33530E7A)() -&gt; ()"
+                  moduleName = "OLXTrack"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/abuzeid/workspace/OLXTrack/OLXTrack/Scenes/categories/CategoriesViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "464">
+               </Location>
+               <Location
+                  uuid = "A92B46B6-6B2D-4912-8641-11DC1BC98F8D - 29aa5a685da04138"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #1 (Swift.Optional&lt;Swift.Array&lt;OLXTrack.CategoryItem&gt;&gt;) -&gt; () in OLXTrack.CategoriesViewController.(bindToViewModel in _DA0853871781A3A4D142BE6E33530E7A)() -&gt; ()"
+                  moduleName = "OLXTrack"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/abuzeid/workspace/OLXTrack/OLXTrack/Scenes/categories/CategoriesViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "38">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

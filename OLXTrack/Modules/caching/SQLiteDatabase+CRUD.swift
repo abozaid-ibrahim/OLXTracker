@@ -10,6 +10,7 @@ import Foundation
 import SQLite3
 
 extension SQLiteDatabase {
+    
     func createTable(table: SQLTable.Type) throws {
         let createTableStatement = try prepareStatement(sql: table.createStatement)
         defer {
@@ -43,6 +44,18 @@ extension SQLiteDatabase {
         log(.info, "Successfully inserted row.")
     }
 
+    func update(id: Int, newVisits: Int) throws {
+        let updateStatementString = "UPDATE CategoryItem SET visits = '\(newVisits)' WHERE Id = \(id);"
+        let insertStatement = try prepareStatement(sql: updateStatementString)
+        defer {
+            sqlite3_finalize(insertStatement)
+        }
+
+        guard sqlite3_step(insertStatement) == SQLITE_DONE else {
+            throw SQLiteError.Step(message: errorMessage)
+        }
+    }
+
     func category(id: Int32) -> CategoryItem? {
         let querySql = "SELECT * FROM CategoryItem WHERE Id = ?;"
         guard let queryStatement = try? prepareStatement(sql: querySql) else {
@@ -63,9 +76,29 @@ extension SQLiteDatabase {
 
         let id = sqlite3_column_int(queryStatement, 0)
         let visits = sqlite3_column_int(queryStatement, 2)
-        let queryResultCol1 = sqlite3_column_text(queryStatement, 1)
-        let name = String(cString: queryResultCol1!) as NSString
+        let name = String(cString: sqlite3_column_text(queryStatement, 1)!)
+        return CategoryItem(id: Int(id), visitsCount: Int(visits), title: name, thumbnail: "")
+    }
 
-        return CategoryItem(id: Int(id), visitsCount: Int(visits), title: String(name), thumbnail: "")
+    func allCategories() -> [CategoryItem] {
+        let querySql = "SELECT * FROM CategoryItem WHERE 1=1;"
+        guard let queryStatement = try? prepareStatement(sql: querySql) else {
+            return []
+        }
+
+        defer {
+            sqlite3_finalize(queryStatement)
+        }
+
+        var objList: [CategoryItem] = []
+        while sqlite3_step(queryStatement) == SQLITE_ROW {
+            let id = sqlite3_column_int(queryStatement, 0)
+            let visits = sqlite3_column_int(queryStatement, 2)
+            let name = String(cString: sqlite3_column_text(queryStatement, 1)!)
+            let obj = CategoryItem(id: Int(id), visitsCount: Int(visits), title: name, thumbnail: "")
+            objList.append(obj)
+        }
+
+        return objList
     }
 }

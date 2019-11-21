@@ -57,7 +57,8 @@ extension CategoriesViewController: UICollectionViewDataSource {
 
 extension CategoriesViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        viewModel.showItems(of: items[collectionView.itemIndex(of: indexPath, in: itemsPerSection)])
+        let pos = collectionView.itemIndex(of: indexPath, in: itemsPerSection)
+        viewModel.showItems(of: items[pos], at: pos)
     }
 }
 

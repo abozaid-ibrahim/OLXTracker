@@ -12,6 +12,7 @@ import Foundation
 
 enum CategoriesApi {
     case cats(key: String, manufacturer: String, page: Int, pageSize: Int)
+    case items(cat: String, page:Page)
 }
 
 extension CategoriesApi: RequestBuilder {

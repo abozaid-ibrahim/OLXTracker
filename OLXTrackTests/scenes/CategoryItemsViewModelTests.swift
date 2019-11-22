@@ -1,15 +1,14 @@
 //
-//  OLXTrackTests.swift
+//  CategoryItemsViewModelTests.swift
 //  OLXTrackTests
 //
-//  Created by abuzeid on 11/19/19.
+//  Created by abuzeid on 11/22/19.
 //  Copyright © 2019 abuzeid. All rights reserved.
 //
 
 import XCTest
-@testable import OLXTrack
 
-class OLXTrackTests: XCTestCase {
+class CategoryItemsViewModelTests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.

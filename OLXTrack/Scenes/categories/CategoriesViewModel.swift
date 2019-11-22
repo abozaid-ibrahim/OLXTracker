@@ -23,7 +23,9 @@ struct CategoriesListViewModel: CategoriesViewModel {
 
     func loadData() {
         DispatchQueue.global().async {
-            let sorted = self.dataRepository.getDefaultCategories()
+            let sorted = self.dataRepository.getDefaultCategories().sorted { (item, item2) -> Bool in
+                item.visitsCount > item2.visitsCount
+            }
             self.categories.next(sorted)
         }
     }

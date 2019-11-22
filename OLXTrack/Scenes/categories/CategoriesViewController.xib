@@ -22,12 +22,11 @@
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="e3K-me-Ehb">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="MLR-7J-hWy">
-                        <size key="itemSize" width="50" height="50"/>
-                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    </collectionViewFlowLayout>
+                    <collectionViewLayout key="collectionViewLayout" id="qnD-0h-EBi" customClass="DynamicWidthCellLayout" customModule="OLXTrack" customModuleProvider="target">
+                        <connections>
+                            <outlet property="delegate" destination="-1" id="3Hh-8x-awe"/>
+                        </connections>
+                    </collectionViewLayout>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="GpA-ek-IC8"/>
                         <outlet property="delegate" destination="-1" id="8IS-xv-GZU"/>

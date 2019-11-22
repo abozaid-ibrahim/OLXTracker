@@ -8,15 +8,19 @@
 
 import Foundation
 enum NetworkFailure: LocalizedError {
-    case unAcceptedResponse(String), failedToParseData, connectionFailed,noData,badRequest
+    case unAcceptedResponse(String), failedToParseData, connectionFailed, noData, badRequest
     var errorDescription: String? {
         switch self {
         case .failedToParseData:
             return "Technical Difficults, we can't fetch the data"
-            
-        default:
-            return "\(self)"
-            // "Check your connectivity"
+        case .unAcceptedResponse(let err):
+            return "unexpected response: \(err)"
+        case .connectionFailed:
+            return "Check your connectivity"
+        case .noData:
+           return "there is no data"
+        case .badRequest:
+           return "something is missing, you have bad request"
         }
     }
 }

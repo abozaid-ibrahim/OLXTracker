@@ -40,16 +40,16 @@ private extension CategoriesViewController {
 extension CategoriesViewController: UICollectionViewDataSource {
     var itemsPerSection: Int { return 2 }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return collectionView.numberOfItems(in: section, count: items.count, itms: itemsPerSection)
+        return items.count
     }
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return collectionView.number(of: itemsPerSection, ofArray: items.count)
+        return 1
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: CategoryCollectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionCell.identifier, for: indexPath) as! CategoryCollectionCell
-        let model = items[collectionView.itemIndex(of: indexPath, in: itemsPerSection)]
+        let model = items[indexPath.row]
         cell.setData(with: (model.title, model.thumbnail ?? ""))
         return cell
     }
@@ -62,20 +62,24 @@ extension CategoriesViewController: UICollectionViewDelegate {
     }
 }
 
-extension CategoriesViewController: UICollectionViewDelegateFlowLayout {
-    var itemPadding: CGFloat { return CGFloat(6) }
+extension CategoriesViewController: DynamicWidthCellLayoutDelegate {
+    func collectionView(_ collectionView: UICollectionView, widthForItemAt indexPath: IndexPath) -> CellWidthType {
+        print(indexPath)
+        switch indexPath.row {
+        case 0:
+            return items[indexPath.row].visitsCount > items[indexPath.row + 1].visitsCount ? .mostVisited : .normal
+//            return .fillWidth
+        case items.count - 1:
+            return .fillWidth
 
-    var itemSize: CGSize {
-        let margins = CGFloat(itemsPerSection + 1) * itemPadding
-        let cellWidth = (collectionView.bounds.width - margins) / CGFloat(itemsPerSection)
-        return CGSize(width: cellWidth, height: cellWidth)
+        default:
+            return .normal
+        }
     }
+}
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return itemSize
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return .init(top: itemPadding, left: itemPadding, bottom: 0, right: itemPadding)
+extension IndexPath {
+    static var zero: IndexPath {
+        return IndexPath(row: 0, section: 0)
     }
 }

@@ -8,12 +8,12 @@
 
 import Foundation
 
-class StartupLogicCommand {
+final class StartupLogicCommand {
     func excute() {
-        check()
+        addDefaultCategoriesToDatabase()
     }
 
-    private func check() {
+    private func addDefaultCategoriesToDatabase() {
         let repo = CategoryRepo()
         if repo.getDefaultCategories().isEmpty {
             repo.createTable()

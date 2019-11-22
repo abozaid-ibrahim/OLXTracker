@@ -9,7 +9,7 @@ import Foundation
 
 protocol CategoriesViewModel {
     var categories: MObservable<[CategoryItem]> { get }
-    func showItems(of cat: CategoryItem)
+    func showItems(of cat: CategoryItem, at position: Int)
     func loadData()
 }
 
@@ -22,10 +22,16 @@ struct CategoriesListViewModel: CategoriesViewModel {
     }
 
     func loadData() {
-        categories.next(dataRepository.defaultCategories)
+        DispatchQueue.global().async {
+            let sorted = self.dataRepository.getDefaultCategories()
+            self.categories.next(sorted)
+        }
     }
 
-    func showItems(of cat: CategoryItem) {
+    func showItems(of cat: CategoryItem, at position: Int) {
+        guard var values = categories.value else { return }
+        values[position].IncrementVisits()
+        dataRepository.incrementVistis(for: values[position])
         try? AppNavigator().push(.categoryItems(cat))
     }
 }

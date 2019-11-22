@@ -19,20 +19,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 }
-
-class StartupLogicCommand {
-    func excute() {
-        check()
-    }
-
-    private func check() {
-        let repo = CategoryRepo()
-        if repo.getDefaultCategories().isEmpty {
-            repo.createTable()
-            let repos = Bundle.main.decode([CategoryItem].self,from:"DefaultCategories.json")
-            for item in repos {
-                repo.insert(cat: item)
-            }
-        }
-    }
-}

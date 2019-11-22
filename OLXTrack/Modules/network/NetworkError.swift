@@ -8,7 +8,7 @@
 
 import Foundation
 enum NetworkFailure: LocalizedError {
-    case unAcceptedResponse(String), failedToParseData, connectionFailed,noData
+    case unAcceptedResponse(String), failedToParseData, connectionFailed,noData,badRequest
     var errorDescription: String? {
         switch self {
         case .failedToParseData:

@@ -50,7 +50,7 @@ extension CategoriesViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: CategoryCollectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionCell.identifier, for: indexPath) as! CategoryCollectionCell
         let model = items[collectionView.itemIndex(of: indexPath, in: itemsPerSection)]
-        cell.setData(with: (model.title, model.thumbnail))
+        cell.setData(with: (model.title, model.thumbnail ?? ""))
         return cell
     }
 }

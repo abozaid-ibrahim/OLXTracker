@@ -27,12 +27,12 @@ struct CategoryItemsGridViewModel: CategoryItemsViewModel {
 
     private var category: CategoryItem
     private let page = Page()
+    private var network: ApiClient
 
     // MARK: Observers
 
     var showProgress: MObservable<Bool> = MObservable(false)
 
-    var network: ApiClient
     var error: MObservable<Error> = MObservable()
     /// initializier
     /// - Parameter apiClient: network handler

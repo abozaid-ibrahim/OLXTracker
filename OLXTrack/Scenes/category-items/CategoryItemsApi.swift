@@ -11,7 +11,6 @@ import Foundation
 import Foundation
 
 enum CategoryApi {
-//    case cats(key: String, manufacturer: String, page: Int, pageSize: Int)
     case items(cat: String, page: Page)
 }
 
@@ -19,7 +18,7 @@ extension CategoryApi: RequestBuilder {
     var parameters: [String: Any] {
         switch self {
         case .items(let cat, let page):
-            return ["method": "flickr.cameras.getBrandModels", "api_key": APIConstants.apiKey, "brand": cat, "format": "json", "nojsoncallback": "1"]
+            return ["method": "flickr.cameras.getBrandModels", "api_key": APIConstants.apiKey, "brand": cat, "format": "json", "nojsoncallback": "1","page":page.currentPage,"per_page":page.countPerPage]
         }
     }
 

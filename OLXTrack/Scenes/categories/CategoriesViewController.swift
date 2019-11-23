@@ -28,7 +28,8 @@ private extension CategoriesViewController {
     }
 
     func bindToViewModel() {
-        viewModel.categories.subscribe { [unowned self] cats in
+        viewModel.categories.subscribe { [weak self] cats in
+            guard let self = self else { return }
             self.items = cats ?? []
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
@@ -57,8 +58,7 @@ extension CategoriesViewController: UICollectionViewDataSource {
 
 extension CategoriesViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let pos = collectionView.itemIndex(of: indexPath, in: itemsPerSection)
-        viewModel.showItems(of: items[pos], at: pos)
+        viewModel.showItems(of: items[indexPath.row], at: indexPath.row)
     }
 }
 
@@ -68,9 +68,8 @@ extension CategoriesViewController: DynamicWidthCellLayoutDelegate {
         switch indexPath.row {
         case 0:
             return items[indexPath.row].visitsCount > items[indexPath.row + 1].visitsCount ? .mostVisited : .normal
-//            return .fillWidth
         case items.count - 1:
-            return .fillWidth
+            return .lastCell
 
         default:
             return .normal

@@ -63,8 +63,6 @@ This is grouping for appdelege, info, launch screen
 
 
 ## Improvements
-* Unit test the view model
-* handle errors
-* improve logs
+
 * add staging environment
 

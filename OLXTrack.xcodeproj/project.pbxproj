@@ -28,16 +28,13 @@
 		6CB0733523843E060021B0E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB0733423843E060021B0E4 /* AppDelegate.swift */; };
 		6CB0733C23843E070021B0E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CB0733B23843E070021B0E4 /* Assets.xcassets */; };
 		6CB0733F23843E070021B0E4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CB0733D23843E070021B0E4 /* LaunchScreen.storyboard */; };
-		6CB0734A23843E070021B0E4 /* OLXTrackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB0734923843E070021B0E4 /* OLXTrackTests.swift */; };
 		6CB0735523843E070021B0E4 /* OLXTrackUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB0735423843E070021B0E4 /* OLXTrackUITests.swift */; };
 		6CB0736C23843F950021B0E4 /* Pageable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB0736723843F950021B0E4 /* Pageable.swift */; };
 		6CB0736D23843F950021B0E4 /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB0736823843F950021B0E4 /* RequestBuilder.swift */; };
 		6CB0736E23843F950021B0E4 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB0736923843F950021B0E4 /* NetworkError.swift */; };
 		6CB0736F23843F950021B0E4 /* AlamofireClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB0736A23843F950021B0E4 /* AlamofireClient.swift */; };
 		6CB0737023843F950021B0E4 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB0736B23843F950021B0E4 /* APIClient.swift */; };
-		6CB073752384415B0021B0E4 /* DictionaryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB073722384415B0021B0E4 /* DictionaryExtension.swift */; };
 		6CB073762384415B0021B0E4 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB073732384415B0021B0E4 /* Logger.swift */; };
-		6CB073772384415B0021B0E4 /* DataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB073742384415B0021B0E4 /* DataExtension.swift */; };
 		6CB073792384588F0021B0E4 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB073782384588F0021B0E4 /* Observable.swift */; };
 		6CB0737C23845DC60021B0E4 /* StaticCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB0737B23845DC60021B0E4 /* StaticCategories.swift */; };
 		6CB0737F23845E1D0021B0E4 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB0737D23845E1D0021B0E4 /* CategoriesViewController.swift */; };
@@ -50,7 +47,6 @@
 		6CB0739823846DA90021B0E4 /* Destination+Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB0739423846DA90021B0E4 /* Destination+Categories.swift */; };
 		6CB0739E23846EFF0021B0E4 /* BundleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB0739B23846EFF0021B0E4 /* BundleExtension.swift */; };
 		6CB0739F23846EFF0021B0E4 /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB0739C23846EFF0021B0E4 /* Loadable.swift */; };
-		6CB073A023846EFF0021B0E4 /* UIView+Constrains.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB0739D23846EFF0021B0E4 /* UIView+Constrains.swift */; };
 		6CC05A842386B68A00E19766 /* CategoriesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6CC05A832386B68A00E19766 /* CategoriesViewController.xib */; };
 		6CC05A862386BC1B00E19766 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6CC05A852386BC1B00E19766 /* README.md */; };
 		6CC05A882386C39100E19766 /* SQLiteDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC05A872386C39100E19766 /* SQLiteDatabase.swift */; };
@@ -109,7 +105,6 @@
 		6CB0733E23843E070021B0E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6CB0734023843E070021B0E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6CB0734523843E070021B0E4 /* OLXTrackTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OLXTrackTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6CB0734923843E070021B0E4 /* OLXTrackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OLXTrackTests.swift; sourceTree = "<group>"; };
 		6CB0734B23843E070021B0E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6CB0735023843E070021B0E4 /* OLXTrackUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OLXTrackUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CB0735423843E070021B0E4 /* OLXTrackUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OLXTrackUITests.swift; sourceTree = "<group>"; };
@@ -119,9 +114,7 @@
 		6CB0736923843F950021B0E4 /* NetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		6CB0736A23843F950021B0E4 /* AlamofireClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireClient.swift; sourceTree = "<group>"; };
 		6CB0736B23843F950021B0E4 /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
-		6CB073722384415B0021B0E4 /* DictionaryExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryExtension.swift; sourceTree = "<group>"; };
 		6CB073732384415B0021B0E4 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
-		6CB073742384415B0021B0E4 /* DataExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataExtension.swift; sourceTree = "<group>"; };
 		6CB073782384588F0021B0E4 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		6CB0737B23845DC60021B0E4 /* StaticCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticCategories.swift; sourceTree = "<group>"; };
 		6CB0737D23845E1D0021B0E4 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
@@ -134,7 +127,6 @@
 		6CB0739423846DA90021B0E4 /* Destination+Categories.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Destination+Categories.swift"; sourceTree = "<group>"; };
 		6CB0739B23846EFF0021B0E4 /* BundleExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BundleExtension.swift; sourceTree = "<group>"; };
 		6CB0739C23846EFF0021B0E4 /* Loadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
-		6CB0739D23846EFF0021B0E4 /* UIView+Constrains.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Constrains.swift"; sourceTree = "<group>"; };
 		6CC05A832386B68A00E19766 /* CategoriesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoriesViewController.xib; sourceTree = "<group>"; };
 		6CC05A852386BC1B00E19766 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		6CC05A872386C39100E19766 /* SQLiteDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteDatabase.swift; sourceTree = "<group>"; };
@@ -207,6 +199,7 @@
 		6C214B6423868310003B0FCB /* wrappers */ = {
 			isa = PBXGroup;
 			children = (
+				6CB0739C23846EFF0021B0E4 /* Loadable.swift */,
 				6C214B652386833E003B0FCB /* UIImageView+Image.swift */,
 			);
 			path = wrappers;
@@ -247,6 +240,7 @@
 		6C4B92D6238833E20037FA16 /* modules */ = {
 			isa = PBXGroup;
 			children = (
+				6C4B92DA238834190037FA16 /* scenes */,
 				6C4B92DC238834490037FA16 /* memory leaks */,
 				6C4B92D7238833E90037FA16 /* caching */,
 			);
@@ -268,14 +262,6 @@
 				6C4B92D2238833BF0037FA16 /* CategoryItemsViewModelTests.swift */,
 			);
 			path = scenes;
-			sourceTree = "<group>";
-		};
-		6C4B92DB238834270037FA16 /* integeration test */ = {
-			isa = PBXGroup;
-			children = (
-				6CB0734923843E070021B0E4 /* OLXTrackTests.swift */,
-			);
-			path = "integeration test";
 			sourceTree = "<group>";
 		};
 		6C4B92DC238834490037FA16 /* memory leaks */ = {
@@ -326,8 +312,6 @@
 		6CB0734823843E070021B0E4 /* OLXTrackTests */ = {
 			isa = PBXGroup;
 			children = (
-				6C4B92DB238834270037FA16 /* integeration test */,
-				6C4B92DA238834190037FA16 /* scenes */,
 				6C4B92D6238833E20037FA16 /* modules */,
 				6CB0734B23843E070021B0E4 /* Info.plist */,
 			);
@@ -368,11 +352,7 @@
 			isa = PBXGroup;
 			children = (
 				6C214B6423868310003B0FCB /* wrappers */,
-				6CB0739B23846EFF0021B0E4 /* BundleExtension.swift */,
-				6CB0739C23846EFF0021B0E4 /* Loadable.swift */,
-				6CB0739D23846EFF0021B0E4 /* UIView+Constrains.swift */,
 				6CB073712384410F0021B0E4 /* swifter swift */,
-				6C26C9C523857A9A004CDDE4 /* UICollectionViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -392,9 +372,9 @@
 		6CB073712384410F0021B0E4 /* swifter swift */ = {
 			isa = PBXGroup;
 			children = (
-				6CB073742384415B0021B0E4 /* DataExtension.swift */,
-				6CB073722384415B0021B0E4 /* DictionaryExtension.swift */,
+				6CB0739B23846EFF0021B0E4 /* BundleExtension.swift */,
 				6CB073732384415B0021B0E4 /* Logger.swift */,
+				6C26C9C523857A9A004CDDE4 /* UICollectionViewExtension.swift */,
 				6CB073782384588F0021B0E4 /* Observable.swift */,
 			);
 			path = "swifter swift";
@@ -718,18 +698,15 @@
 				6CC05A9A2386F56800E19766 /* StartupLogicCommand.swift in Sources */,
 				6CB0736E23843F950021B0E4 /* NetworkError.swift in Sources */,
 				6C26C9B9238574A7004CDDE4 /* ItemDetailsController.swift in Sources */,
-				6CB073752384415B0021B0E4 /* DictionaryExtension.swift in Sources */,
 				6CC05A8A2386D17800E19766 /* SQLErrors.swift in Sources */,
 				6C26C9C2238574EE004CDDE4 /* Destination+ItemDetails.swift in Sources */,
 				6CC05A8E2386D29D00E19766 /* SQLiteDatabase+CRUD.swift in Sources */,
 				6CC05A922386D7AD00E19766 /* Category.swift in Sources */,
 				6CB0738F23846CBC0021B0E4 /* Navigator.swift in Sources */,
 				6CB0739523846DA90021B0E4 /* CategoriesResponse.swift in Sources */,
-				6CB073772384415B0021B0E4 /* DataExtension.swift in Sources */,
 				6CB0739823846DA90021B0E4 /* Destination+Categories.swift in Sources */,
 				6CB0739023846CBC0021B0E4 /* Destination.swift in Sources */,
 				6C214B68238687E7003B0FCB /* ItemDetailsViewModel.swift in Sources */,
-				6CB073A023846EFF0021B0E4 /* UIView+Constrains.swift in Sources */,
 				6C26C9B4238556BE004CDDE4 /* UICell.swift in Sources */,
 				6CB0739E23846EFF0021B0E4 /* BundleExtension.swift in Sources */,
 				6C26C9C623857A9A004CDDE4 /* UICollectionViewExtension.swift in Sources */,
@@ -749,7 +726,6 @@
 			files = (
 				6C4B92DE238834700037FA16 /* FreeLeaksModuelsTests.swift in Sources */,
 				6C4B92D5238833D90037FA16 /* CategoriesViewModelTests.swift in Sources */,
-				6CB0734A23843E070021B0E4 /* OLXTrackTests.swift in Sources */,
 				6C4B92D9238834140037FA16 /* SQLiteDatabaseTests.swift in Sources */,
 				6C4B92D3238833BF0037FA16 /* CategoryItemsViewModelTests.swift in Sources */,
 			);

@@ -19,14 +19,14 @@ final class ItemDetailsController: UIViewController {
 
     func bindToViewModel() {
         navigationItem.largeTitleDisplayMode = .always
-        viewModel.title.subscribe { [unowned self] value in
-            self.title = value
+        viewModel.title.subscribe { [weak self] value in
+            self?.title = value
         }
-        viewModel.quote.subscribe { [unowned self] value in
-            self.quoteLbl.text = value
+        viewModel.quote.subscribe { [weak self] value in
+            self?.quoteLbl.text = value
         }
-        viewModel.image.subscribe { [unowned self] value in
-            self.coverImageView.setImage(name: value ?? "")
+        viewModel.image.subscribe { [weak self] value in
+            self?.coverImageView.setImage(name: value ?? "")
         }
     }
 }

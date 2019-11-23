@@ -16,7 +16,6 @@ protocol CachingOperator {
 
 final class SQLiteDatabase: CachingOperator {
     let dbPointer: OpaquePointer?
-   
 
     var errorMessage: String {
         if let errorPointer = sqlite3_errmsg(dbPointer) {
@@ -35,13 +34,10 @@ final class SQLiteDatabase: CachingOperator {
         sqlite3_close(dbPointer)
     }
 
-    static func open() throws -> SQLiteDatabase {
+    static func open(path: String) throws -> SQLiteDatabase {
         var db: OpaquePointer?
-        let dbPath = try! FileManager.default
-           .url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-           .appendingPathComponent("olxtrackers.sqlite")
 
-        if sqlite3_open(dbPath.absoluteString, &db) == SQLITE_OK {
+        if sqlite3_open(path, &db) == SQLITE_OK {
             return SQLiteDatabase(dbPointer: db)
         } else {
             defer {
@@ -66,4 +62,10 @@ final class SQLiteDatabase: CachingOperator {
 
         return statement
     }
+}
+
+struct DBConfig {
+    static let path: String = try! FileManager.default
+        .url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+        .appendingPathComponent("olxtrackers.sqlite").absoluteString
 }

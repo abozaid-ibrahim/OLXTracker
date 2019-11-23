@@ -7,7 +7,7 @@
 //
 
 import Foundation
-enum NetworkFailure: LocalizedError {
+enum NetworkFailure: LocalizedError, Equatable {
     case unAcceptedResponse(String), failedToParseData, connectionFailed, noData, badRequest
     var errorDescription: String? {
         switch self {
@@ -18,9 +18,9 @@ enum NetworkFailure: LocalizedError {
         case .connectionFailed:
             return "Check your connectivity"
         case .noData:
-           return "there is no data"
+            return "there is no data"
         case .badRequest:
-           return "something is missing, you have bad request"
+            return "something is missing, you have bad request"
         }
     }
 }

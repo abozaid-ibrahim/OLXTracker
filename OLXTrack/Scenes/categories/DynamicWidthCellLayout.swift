@@ -10,13 +10,13 @@ import Foundation
 import UIKit
 
 @objc enum CellWidthType: Int {
-    case fillWidth
+    case lastCell
     case mostVisited
     case normal
 
     var widthFactor: CGFloat {
         switch self {
-        case .fillWidth:
+        case .lastCell:
             return 1
         case .mostVisited:
             return 2 / 3
@@ -24,14 +24,15 @@ import UIKit
             return 1 / 3
         }
     }
-    var margin:CGFloat{
+
+    var margin: CGFloat {
         switch self {
-        case .fillWidth:
+        case .lastCell:
             return 0
         case .mostVisited:
             return 3
         case .normal:
-            return 6//ends with 9
+            return 6 // ends with 9
         }
     }
 }
@@ -48,7 +49,7 @@ class DynamicWidthCellLayout: UICollectionViewLayout {
 
     /// The total height of the content
     private var contentHeight: CGFloat = 0
-private let itemPadding = CGFloat(8)
+    private let itemPadding = CGFloat(8)
     /// The total width of the content
     private var contentWidth: CGFloat {
         guard let collectionView = collectionView else {
@@ -58,7 +59,6 @@ private let itemPadding = CGFloat(8)
         return collectionView.bounds.width - (insets.left + insets.right)
     }
 
-   
     private func cellSize(from widthType: CellWidthType) -> CGSize {
         let aspectRatio: CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? 124 / 380 : 156 / 328
         return CGSize(width: (contentWidth * widthType.widthFactor) - widthType.margin,
@@ -76,29 +76,22 @@ private let itemPadding = CGFloat(8)
         guard let collectionView = collectionView,
             collectionView.numberOfSections >= 1,
             layoutAttributes.isEmpty else { return }
-        // Keep a reference of the tile sizes
-        // for each cell calucate the layout attributes of it
         for item in 0 ..< collectionView.numberOfItems(inSection: 0) {
             let indexPath = IndexPath(item: item, section: 0)
-            // Caclulate the size of the cell at the specified index
-            let widthType = delegate?.collectionView(collectionView, widthForItemAt: indexPath) ?? .fillWidth
-            let cellSize = self.cellSize(from: widthType)
+            let widthType = delegate?.collectionView(collectionView, widthForItemAt: indexPath) ?? .lastCell
+            var cellSize = self.cellSize(from: widthType)
+
             // Calculate the origin of the cell at the specified index
             let originX: CGFloat
             let originY: CGFloat
             if item - 1 >= 0, layoutAttributes.count > item - 1 { // not zero and not next attribute
                 let previousCellFrame = layoutAttributes[item - 1].frame
+                calculateLastCellWidth(type: widthType, prevCellMaxX: previousCellFrame.maxX, cellSize: &cellSize)
                 if previousCellFrame.maxX + cellSize.width > contentWidth {
-                    // new y line
-//                    if previousCellFrame.maxY + cellSize.height > contentHeight {
-                        originX = 0
-                        originY = contentHeight + itemPadding
-//                    } else {
-//                        originX = 0
-//                        originY = previousCellFrame.maxY + 8
-//                    }
+                    originX = 0
+                    originY = contentHeight + itemPadding
                 } else {
-                    originX = previousCellFrame.maxX  + itemPadding
+                    originX = previousCellFrame.maxX + itemPadding
                     originY = previousCellFrame.minY
                 }
             } else {
@@ -112,6 +105,17 @@ private let itemPadding = CGFloat(8)
             attributes.frame = frame
             layoutAttributes.append(attributes)
             contentHeight = max(contentHeight, frame.maxY)
+        }
+    }
+
+    func calculateLastCellWidth(type: CellWidthType, prevCellMaxX: CGFloat, cellSize: inout CGSize) {
+        if CellWidthType.lastCell == type {
+            if prevCellMaxX + cellSize.width > contentWidth {
+                let newW = contentWidth - prevCellMaxX
+                if newW >= self.cellSize(from: .normal).width {
+                    cellSize = CGSize(width: newW, height: cellSize.height)
+                }
+            }
         }
     }
 

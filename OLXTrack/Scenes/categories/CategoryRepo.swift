@@ -23,7 +23,7 @@ final class CategoryRepo: CategoryRepository {
     private var db: SQLiteDatabase!
     init() {
         do {
-            db = try SQLiteDatabase.open()
+            db = try SQLiteDatabase.open(path: DBConfig.path)
             log(.info, "Successfully opened connection to database.")
         } catch {
             log(.error, "Unable to open database. Verify that you created the directory described in the Getting Started section.")
@@ -50,7 +50,7 @@ extension CategoryRepo {
 
     func insert(cat: CategoryItem) {
         do {
-            try db.insertContact(contact: cat)
+            try db.insertCategory(cat: cat)
         } catch {
             log(.error, db.errorMessage)
         }

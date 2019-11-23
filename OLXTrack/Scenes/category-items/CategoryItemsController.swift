@@ -30,18 +30,18 @@ private extension CategoryItemsController {
     }
 
     func bindToViewModel() {
-        viewModel.title.subscribe { [unowned self] value in
-            self.title = value
+        viewModel.title.subscribe { [weak self] value in
+            self?.title = value
         }
-        viewModel.categoryItems.subscribe { [unowned self] value in
-            DispatchQueue.main.async { [unowned self] in
-                self.items = value ?? []
-                self.collectionView.reloadData()
+        viewModel.categoryItems.subscribe { [weak self] value in
+            DispatchQueue.main.async { [weak self] in
+                self?.items = value ?? []
+                self?.collectionView.reloadData()
             }
         }
-        viewModel.error.subscribe { [unowned self] error in
-            DispatchQueue.main.async { [unowned self] in
-                self.updateError(error)
+        viewModel.error.subscribe { [weak self] error in
+            DispatchQueue.main.async { [weak self] in
+                self?.updateError(error)
             }
         }
     }
@@ -57,18 +57,17 @@ private extension CategoryItemsController {
 }
 
 extension CategoryItemsController: UICollectionViewDataSource {
-    var itemsPerSection: Int { return 2 }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return collectionView.numberOfItems(in: section, count: items.count, itms: itemsPerSection)
+        return items.count
     }
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return collectionView.number(of: itemsPerSection, ofArray: items.count)
+        return 1
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: CategoryCollectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionCell.identifier, for: indexPath) as! CategoryCollectionCell
-        let model = items[collectionView.itemIndex(of: indexPath, in: itemsPerSection)]
+        let model = items[indexPath.row]
         cell.setData(with: (model.name?.content ?? "", model.images?.small?.content ?? ""))
         return cell
     }
@@ -82,6 +81,7 @@ extension CategoryItemsController: UICollectionViewDelegate {
 
 extension CategoryItemsController: UICollectionViewDelegateFlowLayout {
     var itemPadding: CGFloat { return CGFloat(6) }
+    var itemsPerSection: Int { return 2 }
 
     var itemSize: CGSize {
         let margins = CGFloat(itemsPerSection + 1) * itemPadding

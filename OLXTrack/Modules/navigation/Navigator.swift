@@ -17,6 +17,7 @@ protocol Navigator {
 ///  it have a root controller to do all navigation on till it recieve new root
 final class AppNavigator: Navigator {
     private static var rootController: UINavigationController!
+    @discardableResult
     init(window: UIWindow) {
         AppNavigator.rootController = UINavigationController(rootViewController: Destination.categories.controller())
         window.rootViewController = AppNavigator.rootController

@@ -23,10 +23,10 @@ final class CategoryRepo: CategoryRepository {
     private var db: SQLiteDatabase!
     init() {
         do {
-            db = try SQLiteDatabase.open(path: DBConfig.path)
+            db = try SQLiteDatabase.open(path: DBConfig().path)
             log(.info, "Successfully opened connection to database.")
         } catch {
-            log(.error, "Unable to open database. Verify that you created the directory described in the Getting Started section.")
+            log(.error, "Unable to open database. Verify that you created the directory described in the Getting Started section.\(error.localizedDescription)")
         }
     }
 
@@ -34,8 +34,12 @@ final class CategoryRepo: CategoryRepository {
         return db.allCategories()
     }
 
-    func incrementVistis(for cat: CategoryItem) {
-        try? db.update(id: cat.id, newVisits: cat.visitsCount + 1)
+    func incrementVistis(for cat: CategoryItem) { 
+        do {
+            try db.update(id: cat.id, newVisits: cat.visitsCount + 1)
+        } catch {
+            log(.error, error.localizedDescription)
+        }
     }
 }
 
@@ -55,8 +59,4 @@ extension CategoryRepo {
             log(.error, db.errorMessage)
         }
     }
-
-    //    func read() {
-    //        let first = db.category(id:  1)
-    //        print("\(first?.id) \(first?.name)")
 }

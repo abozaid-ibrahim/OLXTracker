@@ -9,9 +9,8 @@
 import Foundation
 import SQLite3
 protocol CachingOperator {
-//    func insert()
-//    func update()
-//    func query()
+    func insertCategory(cat: CategoryItem) throws
+    func update(id: Int, newVisits: Int) throws
 }
 
 final class SQLiteDatabase: CachingOperator {
@@ -65,7 +64,7 @@ final class SQLiteDatabase: CachingOperator {
 }
 
 struct DBConfig {
-    static let path: String = try! FileManager.default
+    let path: String = try! FileManager.default
         .url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
         .appendingPathComponent("olxtrackers.sqlite").absoluteString
 }

@@ -22,16 +22,14 @@ struct CategoriesListViewModel: CategoriesViewModel {
     }
 
     func loadData() {
-        let sorted = self.dataRepository.getDefaultCategories().sorted { (item, item2) -> Bool in
-            item.visitsCount > item2.visitsCount
-        }
+        let sorted = self.dataRepository.getDefaultCategories().sorted { $0.visitsCount > $1.visitsCount  }
         self.categories.next(sorted)
     }
 
     func showItems(of cat: CategoryItem, at position: Int) {
         guard var values = categories.value else { return }
         values[position].IncrementVisits()
-        categories.next(values)
+        categories.next(values.sorted { $0.visitsCount > $1.visitsCount  })
         self.dataRepository.incrementVistis(for: values[position])
         try? AppNavigator().push(.categoryItems(cat))
     }

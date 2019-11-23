@@ -18,22 +18,19 @@ struct CategoriesListViewModel: CategoriesViewModel {
     var categories: MObservable<[CategoryItem]> = MObservable<[CategoryItem]>()
 
     init(repo: CategoryRepository = CategoryRepo()) {
-        dataRepository = repo
+        self.dataRepository = repo
     }
 
     func loadData() {
-        DispatchQueue.global().async {
-            let sorted = self.dataRepository.getDefaultCategories().sorted { (item, item2) -> Bool in
-                item.visitsCount > item2.visitsCount
-            }
-            self.categories.next(sorted)
-        }
+        let sorted = self.dataRepository.getDefaultCategories().sorted { $0.visitsCount > $1.visitsCount  }
+        self.categories.next(sorted)
     }
 
     func showItems(of cat: CategoryItem, at position: Int) {
         guard var values = categories.value else { return }
         values[position].IncrementVisits()
-        dataRepository.incrementVistis(for: values[position])
+        categories.next(values.sorted { $0.visitsCount > $1.visitsCount  })
+        self.dataRepository.incrementVistis(for: values[position])
         try? AppNavigator().push(.categoryItems(cat))
     }
 }

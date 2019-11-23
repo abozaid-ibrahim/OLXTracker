@@ -19,7 +19,3 @@ final class Page {
        return (currentPage <= maxPages) && (!isFetchingData)
     }
 }
-
-protocol Pageable {
-    func loadCells(for indexPaths: [IndexPath])
-}

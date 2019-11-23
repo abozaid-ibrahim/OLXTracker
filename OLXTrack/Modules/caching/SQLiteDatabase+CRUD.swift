@@ -22,18 +22,18 @@ extension SQLiteDatabase {
         log(.info, "\(table) table created.")
     }
 
-    func insertContact(contact: CategoryItem) throws {
+    func insertCategory(cat: CategoryItem) throws {
         let insertSql = "INSERT INTO CategoryItem (Id, Name, visits) VALUES (?, ?, ?);"
         let insertStatement = try prepareStatement(sql: insertSql)
         defer {
             sqlite3_finalize(insertStatement)
         }
 
-        let title: NSString = NSString(string: contact.title)
+        let title: NSString = NSString(string: cat.title)
 
-        guard sqlite3_bind_int(insertStatement, 1, Int32(contact.id)) == SQLITE_OK,
+        guard sqlite3_bind_int(insertStatement, 1, Int32(cat.id)) == SQLITE_OK,
             sqlite3_bind_text(insertStatement, 2, title.utf8String, -1, nil) == SQLITE_OK,
-            sqlite3_bind_int(insertStatement, 3, Int32(contact.visitsCount)) == SQLITE_OK else {
+            sqlite3_bind_int(insertStatement, 3, Int32(cat.visitsCount)) == SQLITE_OK else {
             throw SQLiteError.Bind(message: errorMessage)
         }
 

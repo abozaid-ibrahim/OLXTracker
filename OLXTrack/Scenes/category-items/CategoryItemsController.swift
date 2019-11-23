@@ -11,6 +11,7 @@ import UIKit
 final class CategoryItemsController: UIViewController {
     @IBOutlet private var collectionView: UICollectionView!
     @IBOutlet private var errorLbl: UILabel!
+    @IBOutlet private var activityIndicator: UIActivityIndicatorView!
     var viewModel: CategoryItemsViewModel!
 
     private var items: [CategorySearchItem] = []
@@ -25,28 +26,37 @@ final class CategoryItemsController: UIViewController {
 // MARK: CategoriesViewController (Private)
 
 private extension CategoryItemsController {
+    func showLoading(show: Bool) {
+        show ? activityIndicator.startAnimating() : activityIndicator.stopAnimating()
+    }
+
     func configureCollectionView() {
         collectionView.registerNib(CategoryCollectionCell.identifier)
     }
 
     func bindToViewModel() {
-        viewModel.title.subscribe { [unowned self] value in
-            self.title = value
+        viewModel.title.subscribe { [weak self] value in
+            self?.title = value
         }
-        viewModel.categoryItems.subscribe { [unowned self] value in
-            DispatchQueue.main.async { [unowned self] in
-                self.items = value ?? []
-                self.collectionView.reloadData()
+        viewModel.categoryItems.subscribe { [weak self] value in
+            DispatchQueue.main.async { [weak self] in
+                self?.items = value ?? []
+                self?.collectionView.reloadData()
             }
         }
-        viewModel.error.subscribe { [unowned self] error in
-            DispatchQueue.main.async { [unowned self] in
-                self.updateError(error)
+        viewModel.error.subscribe { [weak self] error in
+            DispatchQueue.main.async { [weak self] in
+                self?.updateError(error)
+            }
+        }
+        viewModel.showProgress.subscribe { [weak self] value in
+            DispatchQueue.main.async { [weak self] in
+                self?.showLoading(show: value ?? false)
             }
         }
     }
 
-    private func updateError(_ error: Error?) {
+    func updateError(_ error: Error?) {
         if let desc = error?.localizedDescription {
             errorLbl.text = desc
             errorLbl.isHidden = false
@@ -57,18 +67,17 @@ private extension CategoryItemsController {
 }
 
 extension CategoryItemsController: UICollectionViewDataSource {
-    var itemsPerSection: Int { return 2 }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return collectionView.numberOfItems(in: section, count: items.count, itms: itemsPerSection)
+        return items.count
     }
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return collectionView.number(of: itemsPerSection, ofArray: items.count)
+        return 1
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: CategoryCollectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionCell.identifier, for: indexPath) as! CategoryCollectionCell
-        let model = items[collectionView.itemIndex(of: indexPath, in: itemsPerSection)]
+        let model = items[indexPath.row]
         cell.setData(with: (model.name?.content ?? "", model.images?.small?.content ?? ""))
         return cell
     }
@@ -82,6 +91,7 @@ extension CategoryItemsController: UICollectionViewDelegate {
 
 extension CategoryItemsController: UICollectionViewDelegateFlowLayout {
     var itemPadding: CGFloat { return CGFloat(6) }
+    var itemsPerSection: Int { return 2 }
 
     var itemSize: CGSize {
         let margins = CGFloat(itemsPerSection + 1) * itemPadding

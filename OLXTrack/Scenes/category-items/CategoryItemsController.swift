@@ -11,6 +11,7 @@ import UIKit
 final class CategoryItemsController: UIViewController {
     @IBOutlet private var collectionView: UICollectionView!
     @IBOutlet private var errorLbl: UILabel!
+    @IBOutlet private var activityIndicator: UIActivityIndicatorView!
     var viewModel: CategoryItemsViewModel!
 
     private var items: [CategorySearchItem] = []
@@ -25,6 +26,10 @@ final class CategoryItemsController: UIViewController {
 // MARK: CategoriesViewController (Private)
 
 private extension CategoryItemsController {
+    func showLoading(show: Bool) {
+        show ? activityIndicator.startAnimating() : activityIndicator.stopAnimating()
+    }
+
     func configureCollectionView() {
         collectionView.registerNib(CategoryCollectionCell.identifier)
     }
@@ -44,9 +49,14 @@ private extension CategoryItemsController {
                 self?.updateError(error)
             }
         }
+        viewModel.showProgress.subscribe { [weak self] value in
+            DispatchQueue.main.async { [weak self] in
+                self?.showLoading(show: value ?? false)
+            }
+        }
     }
 
-    private func updateError(_ error: Error?) {
+    func updateError(_ error: Error?) {
         if let desc = error?.localizedDescription {
             errorLbl.text = desc
             errorLbl.isHidden = false

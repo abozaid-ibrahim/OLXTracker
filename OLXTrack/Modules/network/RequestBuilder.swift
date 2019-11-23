@@ -19,6 +19,10 @@ public protocol RequestBuilder {
     var task: URLRequest { get }
 }
 
+public enum HttpMethod: String {
+    case get, post
+}
+
 extension RequestBuilder {
     var description: String {
         return "\(endpoint), \(parameters)"
@@ -44,15 +48,3 @@ extension RequestBuilder {
         return request
     }
 }
-
-public enum HttpMethod: String {
-    case get, post
-}
-
-struct APIConstants {
-    static let baseURL = "https://www.flickr.com/services/rest/"
-    static let apiKey = "be03809a807f07ee33e1347357e6fd0a"
-    static let timeout: TimeInterval = 30
-    static let secretKey = "ab1447132d9124c9"
-}
-

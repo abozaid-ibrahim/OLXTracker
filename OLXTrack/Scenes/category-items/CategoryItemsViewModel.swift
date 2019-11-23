@@ -12,17 +12,12 @@ protocol CategoryItemsViewModel {
     var showProgress: MObservable<Bool> { get }
     var categoryItems: MObservable<[CategorySearchItem]> { get }
     var error: MObservable<Error> { get }
-    func showDetails(of item: CategorySearchItem)
     var title: MObservable<String> { get }
-
     func loadData()
+    func showDetails(of item: CategorySearchItem)
 }
 
 struct CategoryItemsGridViewModel: CategoryItemsViewModel {
-    var title: MObservable<String> = MObservable()
-
-    var categoryItems: MObservable<[CategorySearchItem]> = MObservable()
-
     // MARK: private state
 
     private var category: CategoryItem
@@ -32,7 +27,8 @@ struct CategoryItemsGridViewModel: CategoryItemsViewModel {
     // MARK: Observers
 
     var showProgress: MObservable<Bool> = MObservable(false)
-
+    var title: MObservable<String> = MObservable()
+    var categoryItems: MObservable<[CategorySearchItem]> = MObservable()
     var error: MObservable<Error> = MObservable()
     /// initializier
     /// - Parameter apiClient: network handler
@@ -47,6 +43,7 @@ struct CategoryItemsGridViewModel: CategoryItemsViewModel {
     }
 
     func loadData() {
+        showProgress.next(true)
         let api = CategoryApi.items(cat: category.title, page: page)
         network.getData(of: api) { result in
             switch result {
@@ -56,6 +53,7 @@ struct CategoryItemsGridViewModel: CategoryItemsViewModel {
                     log(.error, error.localizedDescription)
                     self.error.next(error)
             }
+            self.showProgress.next(false)
         }
     }
 

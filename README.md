@@ -18,6 +18,11 @@ If this is your first time encountering swift/ios development, please follow [th
 APP_NAME = OLX Tracker (Dev)
 PRODUCT_BUNDLE_IDENTIFIER = com.abuzeid.OLXTrack.dev
 
+#targets:
+* OLXTrack
+* OLXTrackTests
+* OLXTrackUITests
+
 ```
 
 
@@ -65,3 +70,5 @@ This is for group of app scenes: categories view, items view and details view
  ## Improvements
 
  * add staging environment
+ * cach the images 
+ * reach 100% code coverage

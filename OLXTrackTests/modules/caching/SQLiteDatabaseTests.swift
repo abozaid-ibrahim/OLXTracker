@@ -22,7 +22,7 @@ class SQLiteDatabaseTests: XCTestCase {
 
     override func tearDown() {
         sqlDB = nil
-        clearAllFile(path.absoluteURL)
+        deleteSQLFile(path.absoluteURL)
     }
 
     func testCRUD_Operations() {
@@ -40,7 +40,7 @@ class SQLiteDatabaseTests: XCTestCase {
         }
     }
 
-    func clearAllFile(_ url: URL) {
+    func deleteSQLFile(_ url: URL) {
         let fileManager = FileManager.default
         do {
             try fileManager.removeItem(at: url)
@@ -49,4 +49,3 @@ class SQLiteDatabaseTests: XCTestCase {
         }
     }
 }
-

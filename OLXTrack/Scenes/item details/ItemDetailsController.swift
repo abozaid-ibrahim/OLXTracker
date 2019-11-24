@@ -36,8 +36,7 @@ final class ItemDetailsController: UIViewController {
         }
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+    deinit {
         imageDownloader?.dispose()
     }
 }

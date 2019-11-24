@@ -1,5 +1,5 @@
 //
-//  UIImageView+Image.swift
+//  ImageDownloader.swift
 //  OLXTrack
 //
 //  Created by abuzeid on 11/21/19.

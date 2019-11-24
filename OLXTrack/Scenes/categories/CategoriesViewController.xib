@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CategoriesViewController" customModule="OLXTrack" customModuleProvider="target">
             <connections>
                 <outlet property="collectionView" destination="e3K-me-Ehb" id="r8z-Ot-cAn"/>
+                <outlet property="errorLbl" destination="5xP-A1-3cw" id="wCz-k1-GFV"/>
                 <outlet property="view" destination="iN0-l3-epB" id="SSk-1i-7qq"/>
             </connections>
         </placeholder>
@@ -35,6 +36,13 @@
                                 <outlet property="delegate" destination="-1" id="9zb-Tc-x2i"/>
                             </connections>
                         </collectionView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5xP-A1-3cw">
+                            <rect key="frame" x="0.0" y="788" width="414" height="0.0"/>
+                            <color key="backgroundColor" white="0.66666666669999997" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G2e-5u-wYj">
                             <rect key="frame" x="0.0" y="788" width="414" height="30"/>
                             <state key="normal" title="Show more categories">

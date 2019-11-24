@@ -36,10 +36,6 @@ extension CategoryApi: RequestBuilder {
         }
     }
 
-    var path: String {
-        return ""
-    }
-
     var method: HttpMethod {
         switch self {
         case .categories, .items:

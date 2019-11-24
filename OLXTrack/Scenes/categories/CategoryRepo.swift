@@ -37,7 +37,7 @@ final class CategoryRepo: CategoryRepository {
     func incrementVistis(for cat: CategoryItem) {
         do {
             if db.category(id: cat.id) == nil {
-               try db.insertCategory(cat: cat)
+                try db.insertCategory(cat: cat)
             } else {
                 try db.update(id: cat.id, newVisits: (cat.visitsCount ?? 0) + 1)
             }

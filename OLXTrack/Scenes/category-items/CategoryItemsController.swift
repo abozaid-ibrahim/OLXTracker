@@ -11,9 +11,9 @@ import UIKit
 final class CategoryItemsController: UIViewController, Loadable {
     @IBOutlet private var collectionView: UICollectionView!
     @IBOutlet private var errorLbl: UILabel!
-    var viewModel: CategoryItemsViewModel!
-
     private var items: [CategorySearchItem] = []
+
+    var viewModel: CategoryItemsViewModel!
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCollectionView()
@@ -65,10 +65,6 @@ private extension CategoryItemsController {
 extension CategoryItemsController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return items.count
-    }
-
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

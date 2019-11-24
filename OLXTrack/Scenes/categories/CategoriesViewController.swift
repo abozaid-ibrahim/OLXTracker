@@ -9,21 +9,23 @@ import UIKit
 
 final class CategoriesViewController: UIViewController, Loadable {
     @IBOutlet private var collectionView: UICollectionView!
-    var viewModel: CategoriesViewModel!
-    private var items: [CategoryItem] = []
-    @IBAction func moreCategoriesAction(_ sender: UIButton) {
-        viewModel.loadMoreCats()
-        sender.isHidden = true
-        collectionView.setThreeCellsLayout()
-    }
+    @IBOutlet private var errorLbl: UILabel!
 
+    private var items: [CategoryItem] = []
+
+    var viewModel: CategoriesViewModel!
     override func viewDidLoad() {
         super.viewDidLoad()
-
         title = "Categories"
         configureCollectionView()
         bindToViewModel()
         viewModel.loadData()
+    }
+
+    @IBAction private func moreCategoriesAction(_ sender: UIButton) {
+        viewModel.loadMoreCategories()
+        sender.isHidden = true
+        collectionView.setThreeCellsLayout()
     }
 }
 
@@ -46,6 +48,20 @@ private extension CategoriesViewController {
             DispatchQueue.main.async { [weak self] in
                 self?.showLoading(show: show ?? false)
             }
+        }
+        viewModel.error.subscribe { [weak self] error in
+            DispatchQueue.main.async { [weak self] in
+                self?.updateError(error)
+            }
+        }
+    }
+
+    func updateError(_ error: Error?) {
+        if let desc = error?.localizedDescription {
+            errorLbl.text = desc
+            errorLbl.isHidden = false
+        } else {
+            errorLbl.isHidden = false
         }
     }
 }

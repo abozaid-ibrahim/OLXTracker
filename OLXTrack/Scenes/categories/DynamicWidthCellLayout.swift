@@ -32,7 +32,7 @@ import UIKit
         case .mostVisited:
             return 3
         case .normal:
-            return 6 // ends with 9
+            return 6
         }
     }
 }

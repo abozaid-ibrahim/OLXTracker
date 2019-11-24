@@ -10,8 +10,9 @@ import Foundation
 protocol CategoriesViewModel {
     var showProgress: MObservable<Bool> { get }
     var categories: MObservable<[CategoryItem]> { get }
+    var error: MObservable<Error> { get }
     func showItems(of cat: CategoryItem, at position: Int)
-    func loadMoreCats()
+    func loadMoreCategories()
     func loadData()
 }
 
@@ -19,9 +20,10 @@ struct CategoriesListViewModel: CategoriesViewModel {
     private let dataRepository: CategoryRepository
     private let apiClient: ApiClient
     private let page = Page()
+
     let categories: MObservable<[CategoryItem]> = MObservable<[CategoryItem]>()
     let showProgress = MObservable<Bool>()
-
+    let error = MObservable<Error>()
     init(repo: CategoryRepository = CategoryRepo(), apiClient: ApiClient = HTTPClient()) {
         self.dataRepository = repo
         self.apiClient = apiClient
@@ -32,7 +34,7 @@ struct CategoriesListViewModel: CategoriesViewModel {
         categories.next(sorted)
     }
 
-    func loadMoreCats() {
+    func loadMoreCategories() {
         showProgress.next(true)
         let api = CategoryApi.categories(page: page)
         apiClient.getData(of: api) { result in
@@ -41,14 +43,13 @@ struct CategoriesListViewModel: CategoriesViewModel {
                     self.updateUI(with: data)
                 case .failure(let error):
                     log(.error, error.localizedDescription)
-//                    self.error.next(error)
+                    self.error.next(error)
             }
             self.showProgress.next(false)
         }
     }
 
     private func updateUI(with data: Data) {
-        log(.info, String(data: data, encoding: .utf8))
         do {
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
@@ -56,7 +57,7 @@ struct CategoriesListViewModel: CategoriesViewModel {
             categories.next(model.brands?.brand ?? [])
         } catch {
             log(.error, error)
-//               self.error.next(NetworkFailure.failedToParseData)
+            self.error.next(NetworkFailure.failedToParseData)
         }
     }
 

@@ -6,7 +6,6 @@
 //  Copyright © 2019 abuzeid. All rights reserved.
 //
 
-import Kingfisher
 import UIKit
 final class CategoryCollectionCell: UICollectionViewCell, UICell {
     typealias Model = (title: String, image: String?)

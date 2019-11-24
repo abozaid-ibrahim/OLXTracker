@@ -18,7 +18,7 @@ public protocol Disposable {
 
 extension URLSessionDataTask: Disposable {
     public func dispose() {
-        self.cancel()
+        cancel()
     }
 }
 

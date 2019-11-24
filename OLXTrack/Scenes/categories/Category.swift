@@ -28,7 +28,7 @@ struct CategoryItem: Codable {
     }
 
     mutating func IncrementVisits() {
-        self.visitsCount = (self.visitsCount ?? 0) + 1
+        visitsCount = (visitsCount ?? 0) + 1
     }
 }
 

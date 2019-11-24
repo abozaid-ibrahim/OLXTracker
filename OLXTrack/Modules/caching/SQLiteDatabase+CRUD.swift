@@ -10,7 +10,6 @@ import Foundation
 import SQLite3
 
 extension SQLiteDatabase {
-    
     func createTable(table: SQLTable.Type) throws {
         let createTableStatement = try prepareStatement(sql: table.createStatement)
         defer {
@@ -31,7 +30,7 @@ extension SQLiteDatabase {
 
         let title: NSString = NSString(string: cat.title)
 
-        guard sqlite3_bind_text(insertStatement, 1, cat.id,-1,nil) == SQLITE_OK,
+        guard sqlite3_bind_text(insertStatement, 1, cat.id, -1, nil) == SQLITE_OK,
             sqlite3_bind_text(insertStatement, 2, title.utf8String, -1, nil) == SQLITE_OK,
             sqlite3_bind_int(insertStatement, 3, Int32(cat.visitsCount ?? 0)) == SQLITE_OK else {
             throw SQLiteError.Bind(message: errorMessage)
@@ -66,7 +65,7 @@ extension SQLiteDatabase {
             sqlite3_finalize(queryStatement)
         }
 
-        guard sqlite3_bind_text(queryStatement, 1, id,-1,nil) == SQLITE_OK else {
+        guard sqlite3_bind_text(queryStatement, 1, id, -1, nil) == SQLITE_OK else {
             return nil
         }
 

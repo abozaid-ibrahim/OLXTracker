@@ -64,7 +64,7 @@ private extension CategoryItemsController {
 }
 
 extension CategoryItemsController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
         return items.count
     }
 
@@ -77,7 +77,7 @@ extension CategoryItemsController: UICollectionViewDataSource {
 }
 
 extension CategoryItemsController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(_: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         viewModel.showDetails(of: items[indexPath.row])
     }
 }

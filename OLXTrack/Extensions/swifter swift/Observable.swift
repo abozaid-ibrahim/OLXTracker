@@ -22,7 +22,7 @@ class MObservable<T> {
     }
 
     init(_ value: T?) {
-        self._value = value
+        _value = value
     }
 
     init() {

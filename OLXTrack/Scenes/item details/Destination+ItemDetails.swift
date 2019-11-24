@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 extension Destination {
-    func getItemDetailsView(item:CategorySearchItem) -> UIViewController {
+    func getItemDetailsView(item: CategorySearchItem) -> UIViewController {
         let categoriesView = ItemDetailsController()
         categoriesView.viewModel = ItemDetailsViewModel(item: item)
         return categoriesView

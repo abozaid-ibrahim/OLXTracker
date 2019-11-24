@@ -40,6 +40,7 @@ private extension CategoriesViewController {
         viewModel.categories.subscribe { [weak self] cats in
             self?.items = cats ?? []
             DispatchQueue.main.async { [weak self] in
+                self?.updateError(nil)
                 self?.collectionView.reloadData()
             }
         }

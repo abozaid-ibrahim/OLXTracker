@@ -37,6 +37,7 @@ private extension CategoryItemsController {
         viewModel.categoryItems.subscribe { [weak self] value in
             DispatchQueue.main.async { [weak self] in
                 self?.items = value ?? []
+                self?.updateError(nil)
                 self?.collectionView.reloadData()
             }
         }

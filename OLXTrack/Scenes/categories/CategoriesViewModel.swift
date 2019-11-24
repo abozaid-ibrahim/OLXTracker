@@ -34,6 +34,7 @@ struct CategoriesListViewModel: CategoriesViewModel {
         categories.next(sorted)
     }
 
+    
     func loadMoreCategories() {
         showProgress.next(true)
         let api = CategoryApi.categories(page: page)

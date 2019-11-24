@@ -6,7 +6,6 @@
 * iOS 11.0+
 
 ### General Application Frameworks
-Kingfisher : [Image Loading library ](https://github.com/onevcat/Kingfisher)
 SwiftLint: [Linting tool](https://github.com/realm/SwiftLint)
 
 # Getting Started

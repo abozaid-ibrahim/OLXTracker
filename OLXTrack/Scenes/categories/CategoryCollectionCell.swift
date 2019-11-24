@@ -12,8 +12,16 @@ final class CategoryCollectionCell: UICollectionViewCell, UICell {
     typealias Model = (title: String, image: String?)
     @IBOutlet private var coverImageView: UIImageView!
     @IBOutlet private var titleLbl: UILabel!
+    private var imageDownloader: Disposable?
     func setData(with model: Model) {
         titleLbl.text = model.title
-        coverImageView.setImage(name: model.image)
+        if let url = URL(string: model.image ?? "") {
+            imageDownloader = ImageDownloader().downloadImageWith(url: url, placeholder: UIImage(named: "category"), imageView: coverImageView)
+        }
+    }
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        imageDownloader?.dispose()
     }
 }

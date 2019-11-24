@@ -10,12 +10,15 @@ import UIKit
 import Kingfisher
 
 extension UIImageView {
-    func setImage(name: String) {
+    func setImage(name: String?) {
         log(.info,name)
+        guard let name = name else {return}
         if let url = URL(string: name) {
-            kf.setImage(with: url)
+            let image = UIImage(named: "category")
+            self.kf.setImage(with: url, placeholder: image)
         } else {
             image = UIImage(named: name)
+           
         }
     }
 }

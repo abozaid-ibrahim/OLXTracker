@@ -28,12 +28,11 @@ extension CategoryApi: RequestBuilder {
                     "per_page": page.countPerPage]
         case .categories(let page):
             return ["method": "flickr.cameras.getBrands",
-                              "api_key": APIConstants.apiKey,
-                              "format": "json",
-                              "nojsoncallback": "1",
-                              "page": page.currentPage,
-                              "per_page": page.countPerPage]
-            
+                    "api_key": APIConstants.apiKey,
+                    "format": "json",
+                    "nojsoncallback": "1",
+                    "page": page.currentPage,
+                    "per_page": page.countPerPage]
         }
     }
 
@@ -42,7 +41,10 @@ extension CategoryApi: RequestBuilder {
     }
 
     var method: HttpMethod {
-        return .get
+        switch self {
+        case .categories, .items:
+            return .get
+        }
     }
 
     var headers: [String: String]? {

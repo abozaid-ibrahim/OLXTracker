@@ -8,10 +8,9 @@
 
 import UIKit
 
-final class CategoryItemsController: UIViewController {
+final class CategoryItemsController: UIViewController, Loadable {
     @IBOutlet private var collectionView: UICollectionView!
     @IBOutlet private var errorLbl: UILabel!
-    @IBOutlet private var activityIndicator: UIActivityIndicatorView!
     var viewModel: CategoryItemsViewModel!
 
     private var items: [CategorySearchItem] = []
@@ -26,12 +25,9 @@ final class CategoryItemsController: UIViewController {
 // MARK: CategoriesViewController (Private)
 
 private extension CategoryItemsController {
-    func showLoading(show: Bool) {
-        show ? activityIndicator.startAnimating() : activityIndicator.stopAnimating()
-    }
-
     func configureCollectionView() {
         collectionView.registerNib(CategoryCollectionCell.identifier)
+        collectionView.setThreeCellsLayout()
     }
 
     func bindToViewModel() {
@@ -86,24 +82,5 @@ extension CategoryItemsController: UICollectionViewDataSource {
 extension CategoryItemsController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         viewModel.showDetails(of: items[indexPath.row])
-    }
-}
-
-extension CategoryItemsController: UICollectionViewDelegateFlowLayout {
-    var itemPadding: CGFloat { return CGFloat(6) }
-    var itemsPerSection: Int { return 2 }
-
-    var itemSize: CGSize {
-        let margins = CGFloat(itemsPerSection + 1) * itemPadding
-        let cellWidth = (collectionView.bounds.width - margins) / CGFloat(itemsPerSection)
-        return CGSize(width: cellWidth, height: cellWidth)
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return itemSize
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return .init(top: itemPadding, left: itemPadding, bottom: 0, right: itemPadding)
     }
 }

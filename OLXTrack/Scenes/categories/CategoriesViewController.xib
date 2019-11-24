@@ -24,7 +24,7 @@
                     <subviews>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="e3K-me-Ehb">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="788"/>
-                            <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <collectionViewLayout key="collectionViewLayout" id="qnD-0h-EBi" customClass="DynamicWidthCellLayout" customModule="OLXTrack" customModuleProvider="target">
                                 <connections>
                                     <outlet property="delegate" destination="-1" id="vmg-4w-KfG"/>
@@ -37,7 +37,9 @@
                         </collectionView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G2e-5u-wYj">
                             <rect key="frame" x="0.0" y="788" width="414" height="30"/>
-                            <state key="normal" title="Show more categories"/>
+                            <state key="normal" title="Show more categories">
+                                <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                            </state>
                             <connections>
                                 <action selector="moreCategoriesAction:" destination="-1" eventType="touchUpInside" id="Sji-gc-JjE"/>
                             </connections>
@@ -46,6 +48,7 @@
                 </stackView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
             <constraints>
                 <constraint firstItem="Kpr-89-uhb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="1cp-en-5L0"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Kpr-89-uhb" secondAttribute="bottom" id="4qA-yt-u6S"/>

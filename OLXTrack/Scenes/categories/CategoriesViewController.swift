@@ -11,8 +11,10 @@ final class CategoriesViewController: UIViewController, Loadable {
     @IBOutlet private var collectionView: UICollectionView!
     var viewModel: CategoriesViewModel!
     private var items: [CategoryItem] = []
-    @IBAction func moreCategoriesAction(_ sender: Any) {
+    @IBAction func moreCategoriesAction(_ sender: UIButton) {
         viewModel.loadMoreCats()
+        sender.isHidden = true
+        collectionView.setThreeCellsLayout()
     }
 
     override func viewDidLoad() {
@@ -61,7 +63,7 @@ extension CategoriesViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: CategoryCollectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionCell.identifier, for: indexPath) as! CategoryCollectionCell
         let model = items[indexPath.row]
-        cell.setData(with: (model.title, ""))
+        cell.setData(with: (model.title, .none))
         return cell
     }
 }

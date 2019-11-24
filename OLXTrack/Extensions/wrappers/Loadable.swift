@@ -28,6 +28,7 @@ extension Loadable where Self: UIViewController {
     private func showLoading() {
         let activityView = UIActivityIndicatorView(style: .gray)
         activityView.center = view.center
+        activityView.hidesWhenStopped = true
         view.addSubview(activityView)
         activityView.startAnimating()
     }

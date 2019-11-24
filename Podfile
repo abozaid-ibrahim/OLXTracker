@@ -9,7 +9,7 @@ target 'OLXTrack' do
     pod 'Kingfisher'
   target 'OLXTrackTests' do
     inherit! :search_paths
-     pod 'SpecLeaks'
+    pod 'SpecLeaks'
     pod 'Quick'
     pod 'Nimble'
   end

@@ -23,7 +23,7 @@ class FreeLeaksModuelsTests: QuickSpec {
                     expect(vc).toNot(leak())
                 }
                 it("categoriy items Module") {
-                    let cat = CategoryItem(id: 1, visitsCount: 1, title: "apple", thumbnail: nil)
+                    let cat = CategoryItem(id: "1", visitsCount: 1, title: "apple")
                     let vc = LeakTest {
                         Destination.categoryItems(cat).getCategoryItemsView(item: cat)
                     }

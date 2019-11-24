@@ -7,25 +7,36 @@
 //
 
 import Foundation
-struct CategoryItem: Decodable {
-    let id: Int
-    var visitsCount: Int
+
+struct CategoriesResponse: Codable {
+    let brands: Brands?
+    let stat: String?
+}
+
+struct Brands: Codable {
+    let brand: [CategoryItem]?
+}
+
+struct CategoryItem: Codable {
+    let id: String
+    var visitsCount: Int? = 0
     let title: String
-    let thumbnail: String?
+    enum CodingKeys: String, CodingKey {
+        case id
+        case visitsCount
+        case title = "name"
+    }
+
     mutating func IncrementVisits() {
-        self.visitsCount += 1
+        self.visitsCount = (self.visitsCount ?? 0) + 1
     }
 }
 
 extension CategoryItem: SQLTable {
-    var primaryKey: String {
-        String(self.id)
-    }
-
     static var createStatement: String {
         return """
         CREATE TABLE CategoryItem(
-          Id INT PRIMARY KEY NOT NULL,
+          Id CHAR(255) PRIMARY KEY NOT NULL,
           Name CHAR(255),
           visits INT NOT NULL
         );

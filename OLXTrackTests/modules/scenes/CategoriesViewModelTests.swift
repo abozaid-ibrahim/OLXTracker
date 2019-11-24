@@ -35,9 +35,9 @@ class CategoriesViewModelTests: XCTestCase {
 }
 
 class MockedCatRepo: CategoryRepository {
-    static var cats = [CategoryItem(id: 1, visitsCount: 0, title: "Google", thumbnail: nil),
-                       CategoryItem(id: 2, visitsCount: 0, title: "Apple", thumbnail: nil),
-                       CategoryItem(id: 3, visitsCount: 0, title: "Amazon", thumbnail: nil)]
+    static var cats = [CategoryItem(id: "1", visitsCount: 0, title: "Google"),
+                       CategoryItem(id: "2", visitsCount: 0, title: "Apple"),
+                       CategoryItem(id: "3", visitsCount: 0, title: "Amazon")]
     func getDefaultCategories() -> [CategoryItem] {
         return MockedCatRepo.cats
     }

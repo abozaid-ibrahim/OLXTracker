@@ -12,6 +12,7 @@ import Foundation
 
 enum CategoryApi {
     case items(cat: String, page: Page)
+    case categories(page: Page)
 }
 
 extension CategoryApi: RequestBuilder {
@@ -25,6 +26,14 @@ extension CategoryApi: RequestBuilder {
                     "nojsoncallback": "1",
                     "page": page.currentPage,
                     "per_page": page.countPerPage]
+        case .categories(let page):
+            return ["method": "flickr.cameras.getBrands",
+                              "api_key": APIConstants.apiKey,
+                              "format": "json",
+                              "nojsoncallback": "1",
+                              "page": page.currentPage,
+                              "per_page": page.countPerPage]
+            
         }
     }
 

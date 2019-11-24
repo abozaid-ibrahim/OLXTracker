@@ -56,6 +56,7 @@
 		6CC05A982386EE3A00E19766 /* defaultCategories.json in Resources */ = {isa = PBXBuildFile; fileRef = 6CC05A972386EE3A00E19766 /* defaultCategories.json */; };
 		6CC05A9A2386F56800E19766 /* StartupLogicCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC05A992386F56800E19766 /* StartupLogicCommand.swift */; };
 		6CCEF9192389A7AE0089E2BC /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CCEF9182389A7AE0089E2BC /* APIConstants.swift */; };
+		6CCEF91B2389BCE30089E2BC /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CCEF91A2389BCE30089E2BC /* Loadable.swift */; };
 		6ED3F8A55341581DB417DEE1 /* Pods_OLXTrack_OLXTrackUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF27AE9F716FCCAA1BF9DFC3 /* Pods_OLXTrack_OLXTrackUITests.framework */; };
 		C1B32B5870C945A38C232286 /* Pods_OLXTrackTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6584797C67AE42B35639F428 /* Pods_OLXTrackTests.framework */; };
 		DA615B3D572F47F87FCD0CE2 /* Pods_OLXTrack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C728DCC8A984EE68EC07E36 /* Pods_OLXTrack.framework */; };
@@ -136,6 +137,7 @@
 		6CC05A972386EE3A00E19766 /* defaultCategories.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = defaultCategories.json; sourceTree = "<group>"; };
 		6CC05A992386F56800E19766 /* StartupLogicCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartupLogicCommand.swift; sourceTree = "<group>"; };
 		6CCEF9182389A7AE0089E2BC /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
+		6CCEF91A2389BCE30089E2BC /* Loadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
 		6EB96FD7C5075F7DABD7F476 /* Pods-OLXTrackTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OLXTrackTests.release.xcconfig"; path = "Target Support Files/Pods-OLXTrackTests/Pods-OLXTrackTests.release.xcconfig"; sourceTree = "<group>"; };
 		7A6DB5787133B093619FED1A /* Pods-OLXTrack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OLXTrack.release.xcconfig"; path = "Target Support Files/Pods-OLXTrack/Pods-OLXTrack.release.xcconfig"; sourceTree = "<group>"; };
 		7FB38CCEFEFE3C79923EB5DC /* Pods-OLXTrack-OLXTrackUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OLXTrack-OLXTrackUITests.release.xcconfig"; path = "Target Support Files/Pods-OLXTrack-OLXTrackUITests/Pods-OLXTrack-OLXTrackUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 		6C214B6423868310003B0FCB /* wrappers */ = {
 			isa = PBXGroup;
 			children = (
+				6CCEF91A2389BCE30089E2BC /* Loadable.swift */,
 				6C214B652386833E003B0FCB /* UIImageView+Image.swift */,
 			);
 			path = wrappers;
@@ -703,6 +706,7 @@
 				6CC05A8E2386D29D00E19766 /* SQLiteDatabase+CRUD.swift in Sources */,
 				6CC05A922386D7AD00E19766 /* Category.swift in Sources */,
 				6CB0738F23846CBC0021B0E4 /* Navigator.swift in Sources */,
+				6CCEF91B2389BCE30089E2BC /* Loadable.swift in Sources */,
 				6CB0739523846DA90021B0E4 /* CategoriesResponse.swift in Sources */,
 				6CB0739823846DA90021B0E4 /* Destination+Categories.swift in Sources */,
 				6CB0739023846CBC0021B0E4 /* Destination.swift in Sources */,
@@ -927,6 +931,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = OLXTrackTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -948,6 +953,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = OLXTrackTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -968,6 +974,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = OLXTrackUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -988,6 +995,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = OLXTrackUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

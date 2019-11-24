@@ -8,29 +8,63 @@
 import Foundation
 
 protocol CategoriesViewModel {
+    var showProgress: MObservable<Bool> { get }
     var categories: MObservable<[CategoryItem]> { get }
     func showItems(of cat: CategoryItem, at position: Int)
+    func loadMoreCats()
     func loadData()
 }
 
 struct CategoriesListViewModel: CategoriesViewModel {
     private let dataRepository: CategoryRepository
-    var categories: MObservable<[CategoryItem]> = MObservable<[CategoryItem]>()
+    private let apiClient: ApiClient
+    private let page = Page()
+    let categories: MObservable<[CategoryItem]> = MObservable<[CategoryItem]>()
+    let showProgress = MObservable<Bool>()
 
-    init(repo: CategoryRepository = CategoryRepo()) {
+    init(repo: CategoryRepository = CategoryRepo(), apiClient: ApiClient = HTTPClient()) {
         self.dataRepository = repo
+        self.apiClient = apiClient
     }
 
     func loadData() {
-        let sorted = self.dataRepository.getDefaultCategories().sorted { $0.visitsCount > $1.visitsCount  }
-        self.categories.next(sorted)
+        let sorted = dataRepository.getDefaultCategories().sorted { $0.visitsCount ?? 0 > $1.visitsCount ?? 0 }
+        categories.next(sorted)
+    }
+
+    func loadMoreCats() {
+        showProgress.next(true)
+        let api = CategoryApi.categories(page: page)
+        apiClient.getData(of: api) { result in
+            switch result {
+                case .success(let data):
+                    self.updateUI(with: data)
+                case .failure(let error):
+                    log(.error, error.localizedDescription)
+//                    self.error.next(error)
+            }
+            self.showProgress.next(false)
+        }
+    }
+
+    private func updateUI(with data: Data) {
+        log(.info, String(data: data, encoding: .utf8))
+        do {
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            let model = try decoder.decode(CategoriesResponse.self, from: data)
+            categories.next(model.brands?.brand ?? [])
+        } catch {
+            log(.error, error)
+//               self.error.next(NetworkFailure.failedToParseData)
+        }
     }
 
     func showItems(of cat: CategoryItem, at position: Int) {
         guard var values = categories.value else { return }
         values[position].IncrementVisits()
-        categories.next(values.sorted { $0.visitsCount > $1.visitsCount  })
-        self.dataRepository.incrementVistis(for: values[position])
+        categories.next(values.sorted { $0.visitsCount ?? 0 > $1.visitsCount ?? 0 })
+        dataRepository.incrementVistis(for: values[position])
         try? AppNavigator().push(.categoryItems(cat))
     }
 }

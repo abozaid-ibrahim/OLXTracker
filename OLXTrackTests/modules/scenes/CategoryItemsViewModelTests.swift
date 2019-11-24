@@ -11,7 +11,7 @@ import XCTest
 
 class CategoryItemsViewModelTests: XCTestCase {
     var itemsViewModel: CategoryItemsGridViewModel!
-    let apple = CategoryItem(id: 1, visitsCount: 1, title: "Apple", thumbnail: nil)
+    let apple = CategoryItem(id: "1", visitsCount: 1, title: "Apple")
     override func setUp() {
         itemsViewModel = CategoryItemsGridViewModel(apiClient: MockedApiClient(), category: apple)
     }

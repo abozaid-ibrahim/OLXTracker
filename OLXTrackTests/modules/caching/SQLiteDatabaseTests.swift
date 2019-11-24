@@ -23,12 +23,12 @@ class SQLiteDatabaseTests: XCTestCase {
     }
 
     func testCRUD_Operations() {
-        let google = CategoryItem(id: 1, visitsCount: 0, title: "Google", thumbnail: nil)
+        let google = CategoryItem(id: "1", visitsCount: 0, title: "Google")
         do {
             try sqlDB.createTable(table: CategoryItem.self)
             try sqlDB.insertCategory(cat: google)
             XCTAssertEqual(sqlDB.allCategories().count, 1)
-            try sqlDB.update(id: 1, newVisits: 5)
+            try sqlDB.update(id: "1", newVisits: 5)
             let newRecord = sqlDB.category(id: 1)
             XCTAssertEqual(newRecord!.visitsCount, 5)
         } catch {

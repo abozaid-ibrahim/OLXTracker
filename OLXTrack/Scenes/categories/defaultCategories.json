@@ -1,25 +1,19 @@
 [{
-    "id": 1,
-    "title": "Apple",
-    "visitsCount": 0
+    "id": "Aapple",
+    "name": "Apple"
 }, {
-    "id": 2,
-    "title": "Google",
-    "visitsCount": 0
+    "id": "google",
+    "name": "Google"
 }, {
-    "id": 3,
-    "title": "Amazon",
-    "visitsCount": 0
+    "id": "canon",
+    "name": "Canon"
 }, {
-    "id": 4,
-    "title": "Facebook",
-    "visitsCount": 0
+    "id": "nikon",
+    "name": "Nikon"
 }, {
-    "id": 5,
-    "title": "LinkedIn",
-    "visitsCount": 0
+    "id": "samsung",
+    "name": "Samsung"
 }, {
-    "id": 6,
-    "title": "OLX Group",
-    "visitsCount": 0
+    "id": "fujifilm",
+    "name": "Fujifilm"
 }]

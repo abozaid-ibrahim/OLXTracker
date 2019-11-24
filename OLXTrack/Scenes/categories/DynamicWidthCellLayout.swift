@@ -32,7 +32,7 @@ import UIKit
         case .mostVisited:
             return 3
         case .normal:
-            return 6 // ends with 9
+            return 6
         }
     }
 }
@@ -43,14 +43,10 @@ import UIKit
 
 class DynamicWidthCellLayout: UICollectionViewLayout {
     @IBOutlet weak var delegate: DynamicWidthCellLayoutDelegate?
-
-    /// The calculated layout attributes
     private var layoutAttributes = [UICollectionViewLayoutAttributes]()
 
-    /// The total height of the content
     private var contentHeight: CGFloat = 0
     private let itemPadding = CGFloat(8)
-    /// The total width of the content
     private var contentWidth: CGFloat {
         guard let collectionView = collectionView else {
             return 0
@@ -65,7 +61,6 @@ class DynamicWidthCellLayout: UICollectionViewLayout {
                       height: contentWidth * 0.5 * aspectRatio)
     }
 
-    /// The total size of the content
     override var collectionViewContentSize: CGSize {
         return CGSize(width: contentWidth, height: contentHeight)
     }
@@ -81,10 +76,10 @@ class DynamicWidthCellLayout: UICollectionViewLayout {
             let widthType = delegate?.collectionView(collectionView, widthForItemAt: indexPath) ?? .lastCell
             var cellSize = self.cellSize(from: widthType)
 
-            // Calculate the origin of the cell at the specified index
+            /// Calculate the origin of the cell at the specified index
             let originX: CGFloat
             let originY: CGFloat
-            if item - 1 >= 0, layoutAttributes.count > item - 1 { // not zero and not next attribute
+            if item - 1 >= 0, layoutAttributes.count > item - 1 {
                 let previousCellFrame = layoutAttributes[item - 1].frame
                 calculateLastCellWidth(type: widthType, prevCellMaxX: previousCellFrame.maxX, cellSize: &cellSize)
                 if previousCellFrame.maxX + cellSize.width > contentWidth {
@@ -99,7 +94,7 @@ class DynamicWidthCellLayout: UICollectionViewLayout {
                 originY = 0
             }
             let origin = CGPoint(x: originX, y: originY)
-            // Calculate the frame of the cell at the specified index
+            /// Calculate the frame of the cell at the specified index
             let frame = CGRect(origin: origin, size: cellSize)
             let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
             attributes.frame = frame
@@ -122,7 +117,7 @@ class DynamicWidthCellLayout: UICollectionViewLayout {
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         var visibleLayoutAttributes: [UICollectionViewLayoutAttributes] = []
 
-        // Loop through the cache and look for items in the rect
+        /// Loop through the cache and look for items in the rect
         for attributes in layoutAttributes {
             if attributes.frame.intersects(rect) {
                 visibleLayoutAttributes.append(attributes)

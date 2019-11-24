@@ -10,7 +10,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CategoryItemsController" customModule="OLXTrack" customModuleProvider="target">
             <connections>
-                <outlet property="activityIndicator" destination="f5D-v9-kXF" id="D1x-sT-I6N"/>
                 <outlet property="collectionView" destination="9Co-2y-HPS" id="3cm-gK-8M3"/>
                 <outlet property="errorLbl" destination="6Rs-0f-2Oi" id="f1L-lh-yZQ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -47,18 +46,14 @@
                         </label>
                     </subviews>
                 </stackView>
-                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="f5D-v9-kXF">
-                    <rect key="frame" x="197" y="443" width="20" height="20"/>
-                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
             <constraints>
-                <constraint firstItem="f5D-v9-kXF" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="4rn-z9-vla"/>
                 <constraint firstItem="ZS9-CV-Ezh" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="CDS-pR-SFB"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ZS9-CV-Ezh" secondAttribute="bottom" id="Fw9-U4-8ze"/>
                 <constraint firstAttribute="trailing" secondItem="ZS9-CV-Ezh" secondAttribute="trailing" id="ZGO-1f-ZDY"/>
                 <constraint firstItem="ZS9-CV-Ezh" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="mY0-aW-ETL"/>
-                <constraint firstItem="f5D-v9-kXF" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="op5-zv-0xJ"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="137.68115942028987" y="136.60714285714286"/>

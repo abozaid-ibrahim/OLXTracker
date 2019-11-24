@@ -10,7 +10,7 @@ import Foundation
 import SQLite3
 protocol CachingOperator {
     func insertCategory(cat: CategoryItem) throws
-    func update(id: Int, newVisits: Int) throws
+    func update(id: String, newVisits: Int) throws
 }
 
 final class SQLiteDatabase: CachingOperator {

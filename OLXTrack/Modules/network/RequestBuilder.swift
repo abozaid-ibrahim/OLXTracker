@@ -11,8 +11,6 @@ import Foundation
 public protocol RequestBuilder {
     var baseURL: String { get }
 
-    var path: String { get }
-
     var method: HttpMethod { get }
 
     var parameters: [String: Any] { get }
@@ -29,7 +27,7 @@ extension RequestBuilder {
     }
 
     var endpoint: URL {
-        return URL(string: "\(baseURL)\(path)")!
+        return URL(string: "\(baseURL)")!
     }
 
     var baseURL: String {

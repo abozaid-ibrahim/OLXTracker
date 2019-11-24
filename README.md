@@ -3,11 +3,11 @@
 ## Building And Running The Project (Requirements)
 * Swift 5.0+
 * Xcode 11.1+
-* iOS 10.0+
+* iOS 11.0+
 
 ### General Application Frameworks
-Kingfisher : [Image Loading library ](https://github.com/)
-SQLite: [Database](https://github.com/)
+Kingfisher : [Image Loading library ](https://github.com/onevcat/Kingfisher)
+SwiftLint: [Linting tool](https://github.com/realm/SwiftLint)
 
 # Getting Started
 If this is your first time encountering swift/ios development, please follow [the instructions](https://developer.apple.com/support/xcode/) to setup Xcode and Swift on your Mac. And to setup cocoapods for dependency management, make use of [CocoaPods](https://guides.cocoapods.org/using/getting-started.html#getting-started)
@@ -49,20 +49,20 @@ One of the benefits of using MVVM is testing.
 ## Structure
 
 ### Extensions
-This is to group every component's extension / reusable functions
+This is to group every component's extension / reusable functions / wrappers of external framworks
 
 
 ### Modules
 - include seperate modules, Networking, caching...etc.
 
 ### Scenes
-This is for group of app scene 
-
-### supproting files
-This is grouping for appdelege, info, launch screen
+This is for group of app scenes: categories view, items view and details view
 
 
-## Improvements
+## Add New Feature
+ * you could  add new feature by folling OneFlow Model  (https://www.endoflineblog.com/oneflow-a-git-branching-model-and-workflow)
+ * to start new featre, checkout from master, your branch should be under feature group
+ 
+ ## Improvements
 
-* add staging environment
-
+ * add staging environment

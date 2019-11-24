@@ -9,7 +9,7 @@
 import Kingfisher
 import UIKit
 final class CategoryCollectionCell: UICollectionViewCell, UICell {
-    typealias Model = (title: String, image: String)
+    typealias Model = (title: String, image: String?)
     @IBOutlet private var coverImageView: UIImageView!
     @IBOutlet private var titleLbl: UILabel!
     func setData(with model: Model) {

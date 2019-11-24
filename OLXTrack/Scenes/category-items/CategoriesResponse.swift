@@ -13,8 +13,6 @@ struct SearchResultJsonResponse: Codable {
     let stat: String?
 }
 
-// MARK: - Cameras
-
 struct Cameras: Codable {
     let brand: String?
     let camera: [CategorySearchItem]?
@@ -27,13 +25,9 @@ struct CategorySearchItem: Codable {
     let details: Details?
 }
 
-// MARK: - Details
-
 struct Details: Codable {
     let memoryType: Name?
 }
-
-// MARK: - Name
 
 struct Name: Codable {
     let content: String?
@@ -42,8 +36,6 @@ struct Name: Codable {
         case content = "_content"
     }
 }
-
-// MARK: - Images
 
 struct ImageSizes: Codable {
     let small: Name?

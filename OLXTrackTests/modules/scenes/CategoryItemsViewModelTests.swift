@@ -11,7 +11,7 @@ import XCTest
 
 class CategoryItemsViewModelTests: XCTestCase {
     var itemsViewModel: CategoryItemsGridViewModel!
-    let apple = CategoryItem(id: 1, visitsCount: 1, title: "Apple", thumbnail: nil)
+    let apple = CategoryItem(id: "1", visitsCount: 1, title: "Apple")
     override func setUp() {
         itemsViewModel = CategoryItemsGridViewModel(apiClient: MockedApiClient(), category: apple)
     }
@@ -39,7 +39,7 @@ class CategoryItemsViewModelTests: XCTestCase {
     }
 }
 
-class MockedApiClient: ApiClient {
+fileprivate class MockedApiClient: ApiClient {
     func getData(of request: RequestBuilder, completionHandler: @escaping (Result<Data, Error>) -> Void) {
         let data = """
         {"cameras":{"brand":"google","camera":[{"id":"pixel_3","name":{"_content":"Google Pixel 3"}},{"id":"pixel_2","name":{"_content":"Google Pixel 2"}},{"id":"pixel_3_xl","name":{"_content":"Google Pixel 3 XL"}},{"id":"pixel_3a","name":{"_content":"Google Pixel 3a"}},{"id":"pixel","name":{"_content":"Google Pixel"}},{"id":"pixel_3a_xl","name":{"_content":"Google Pixel 3a XL"}},{"id":"pixel_4_xl","name":{"_content":"Google Pixel 4 XL"}},{"id":"pixel_4","name":{"_content":"Google Pixel 4"}},{"id":"glass","name":{"_content":"Google Glass"}}]},"stat":"ok"}
@@ -48,7 +48,7 @@ class MockedApiClient: ApiClient {
     }
 }
 
-class MockedFailureApiClient: ApiClient {
+fileprivate class MockedFailureApiClient: ApiClient {
     func getData(of request: RequestBuilder, completionHandler: @escaping (Result<Data, Error>) -> Void) {
         let data = NetworkFailure.noData
         completionHandler(Result<Data, Error>.failure(data))

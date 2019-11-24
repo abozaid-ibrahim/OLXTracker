@@ -34,9 +34,13 @@ final class CategoryRepo: CategoryRepository {
         return db.allCategories()
     }
 
-    func incrementVistis(for cat: CategoryItem) { 
+    func incrementVistis(for cat: CategoryItem) {
         do {
-            try db.update(id: cat.id, newVisits: cat.visitsCount + 1)
+            if db.category(id: cat.id) == nil {
+                try db.insertCategory(cat: cat)
+            } else {
+                try db.update(id: cat.id, newVisits: (cat.visitsCount ?? 0) + 1)
+            }
         } catch {
             log(.error, error.localizedDescription)
         }

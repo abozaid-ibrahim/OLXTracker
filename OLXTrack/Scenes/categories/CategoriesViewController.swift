@@ -7,16 +7,25 @@
 //
 import UIKit
 
-final class CategoriesViewController: UIViewController {
+final class CategoriesViewController: UIViewController, Loadable {
     @IBOutlet private var collectionView: UICollectionView!
-    var viewModel: CategoriesViewModel!
+    @IBOutlet private var errorLbl: UILabel!
+
     private var items: [CategoryItem] = []
+
+    var viewModel: CategoriesViewModel!
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Categories"
         configureCollectionView()
         bindToViewModel()
         viewModel.loadData()
+    }
+
+    @IBAction private func moreCategoriesAction(_ sender: UIButton) {
+        viewModel.loadMoreCategories()
+        sender.isHidden = true
+        collectionView.setThreeCellsLayout()
     }
 }
 
@@ -29,11 +38,30 @@ private extension CategoriesViewController {
 
     func bindToViewModel() {
         viewModel.categories.subscribe { [weak self] cats in
-            guard let self = self else { return }
-            self.items = cats ?? []
-            DispatchQueue.main.async {
-                self.collectionView.reloadData()
+            self?.items = cats ?? []
+            DispatchQueue.main.async { [weak self] in
+                self?.collectionView.reloadData()
             }
+        }
+
+        viewModel.showProgress.subscribe { [weak self] show in
+            DispatchQueue.main.async { [weak self] in
+                self?.showLoading(show: show ?? false)
+            }
+        }
+        viewModel.error.subscribe { [weak self] error in
+            DispatchQueue.main.async { [weak self] in
+                self?.updateError(error)
+            }
+        }
+    }
+
+    func updateError(_ error: Error?) {
+        if let desc = error?.localizedDescription {
+            errorLbl.text = desc
+            errorLbl.isHidden = false
+        } else {
+            errorLbl.isHidden = false
         }
     }
 }
@@ -51,7 +79,7 @@ extension CategoriesViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: CategoryCollectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionCell.identifier, for: indexPath) as! CategoryCollectionCell
         let model = items[indexPath.row]
-        cell.setData(with: (model.title, model.thumbnail ?? ""))
+        cell.setData(with: (model.title, .none))
         return cell
     }
 }
@@ -64,21 +92,15 @@ extension CategoriesViewController: UICollectionViewDelegate {
 
 extension CategoriesViewController: DynamicWidthCellLayoutDelegate {
     func collectionView(_ collectionView: UICollectionView, widthForItemAt indexPath: IndexPath) -> CellWidthType {
-        print(indexPath)
         switch indexPath.row {
         case 0:
-            return items[indexPath.row].visitsCount > items[indexPath.row + 1].visitsCount ? .mostVisited : .normal
+            return items[indexPath.row].visitsCount ?? 0 > items[indexPath.row + 1].visitsCount ?? 0 ? .mostVisited : .normal
+
         case items.count - 1:
             return .lastCell
 
         default:
             return .normal
         }
-    }
-}
-
-extension IndexPath {
-    static var zero: IndexPath {
-        return IndexPath(row: 0, section: 0)
     }
 }

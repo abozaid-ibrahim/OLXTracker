@@ -13,7 +13,7 @@ enum NetworkFailure: LocalizedError, Equatable {
         switch self {
         case .failedToParseData:
             return "Technical Difficults, we can't fetch the data"
-        case .unAcceptedResponse(let err):
+        case let .unAcceptedResponse(err):
             return "unexpected response: \(err)"
         case .connectionFailed:
             return "Check your connectivity"

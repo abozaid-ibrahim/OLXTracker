@@ -14,4 +14,4 @@ enum SQLiteError: Error {
     case Prepare(message: String)
     case Step(message: String)
     case Bind(message: String)
-  }
+}

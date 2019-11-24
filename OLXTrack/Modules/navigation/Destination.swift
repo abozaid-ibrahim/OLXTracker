@@ -17,9 +17,9 @@ enum Destination {
         switch self {
         case .categories:
             return getCategoriesView()
-        case .categoryItems(let category):
+        case let .categoryItems(category):
             return getCategoryItemsView(item: category)
-        case .itemDetails(let item):
+        case let .itemDetails(item):
             return getItemDetailsView(item: item)
         }
     }

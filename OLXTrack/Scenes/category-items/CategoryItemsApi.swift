@@ -18,7 +18,7 @@ enum CategoryApi {
 extension CategoryApi: RequestBuilder {
     var parameters: [String: Any] {
         switch self {
-        case .items(let cat, let page):
+        case let .items(cat, page):
             return ["method": "flickr.cameras.getBrandModels",
                     "api_key": APIConstants.apiKey,
                     "brand": cat,
@@ -26,7 +26,7 @@ extension CategoryApi: RequestBuilder {
                     "nojsoncallback": "1",
                     "page": page.currentPage,
                     "per_page": page.countPerPage]
-        case .categories(let page):
+        case let .categories(page):
             return ["method": "flickr.cameras.getBrands",
                     "api_key": APIConstants.apiKey,
                     "format": "json",

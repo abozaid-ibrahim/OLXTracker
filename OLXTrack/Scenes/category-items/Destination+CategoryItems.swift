@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 extension Destination {
-    func getCategoryItemsView(item:CategoryItem) -> UIViewController {
+    func getCategoryItemsView(item: CategoryItem) -> UIViewController {
         let categoriesView = CategoryItemsController()
         categoriesView.viewModel = CategoryItemsGridViewModel(category: item)
         return categoriesView

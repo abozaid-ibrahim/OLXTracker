@@ -10,7 +10,7 @@ import UIKit
 
 extension UICollectionView {
     func registerNib(_ name: String) {
-        self.register(UINib(nibName: name, bundle: .none), forCellWithReuseIdentifier: name)
+        register(UINib(nibName: name, bundle: .none), forCellWithReuseIdentifier: name)
     }
 
     func setThreeCellsLayout() {

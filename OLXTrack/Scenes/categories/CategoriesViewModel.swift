@@ -25,7 +25,7 @@ struct CategoriesListViewModel: CategoriesViewModel {
     let showProgress = MObservable<Bool>()
     let error = MObservable<Error>()
     init(repo: CategoryRepository = CategoryRepo(), apiClient: ApiClient = HTTPClient()) {
-        self.dataRepository = repo
+        dataRepository = repo
         self.apiClient = apiClient
     }
 
@@ -34,17 +34,16 @@ struct CategoriesListViewModel: CategoriesViewModel {
         categories.next(sorted)
     }
 
-    
     func loadMoreCategories() {
         showProgress.next(true)
         let api = CategoryApi.categories(page: page)
         apiClient.getData(of: api) { result in
             switch result {
-                case .success(let data):
-                    self.updateUI(with: data)
-                case .failure(let error):
-                    log(.error, error.localizedDescription)
-                    self.error.next(error)
+            case let .success(data):
+                self.updateUI(with: data)
+            case let .failure(error):
+                log(.error, error.localizedDescription)
+                self.error.next(error)
             }
             self.showProgress.next(false)
         }

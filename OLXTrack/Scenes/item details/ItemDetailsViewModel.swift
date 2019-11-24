@@ -30,7 +30,7 @@ struct ItemDetailsViewModel: ItemViewModel {
     }
 
     private func randomIndex(_ upperBound: Int) -> Int {
-        return Int.random(in: 0..<upperBound)
+        return Int.random(in: 0 ..< upperBound)
     }
 
     private var quotes: [String]? = try? Bundle.main.decode([String].self, from: "quotes.json")

@@ -20,10 +20,10 @@ enum LoggingLevels {
 
 func log(_ level: LoggingLevels, _ value: Any?) {
     #if DEBUG
-    if let _value = value {
-        print("->\(level.value) \(_value)")
-    } else {
-        print("->\(level.value) nil")
-    }
+        if let _value = value {
+            print("->\(level.value) \(_value)")
+        } else {
+            print("->\(level.value) nil")
+        }
     #endif
 }

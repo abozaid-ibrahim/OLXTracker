@@ -69,11 +69,11 @@ private extension CategoriesViewController {
 
 extension CategoriesViewController: UICollectionViewDataSource {
     var itemsPerSection: Int { return 2 }
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
         return items.count
     }
 
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
+    func numberOfSections(in _: UICollectionView) -> Int {
         return 1
     }
 
@@ -86,13 +86,13 @@ extension CategoriesViewController: UICollectionViewDataSource {
 }
 
 extension CategoriesViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(_: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         viewModel.showItems(of: items[indexPath.row], at: indexPath.row)
     }
 }
 
 extension CategoriesViewController: DynamicWidthCellLayoutDelegate {
-    func collectionView(_ collectionView: UICollectionView, widthForItemAt indexPath: IndexPath) -> CellWidthType {
+    func collectionView(_: UICollectionView, widthForItemAt indexPath: IndexPath) -> CellWidthType {
         switch indexPath.row {
         case 0:
             return items[indexPath.row].visitsCount ?? 0 > items[indexPath.row + 1].visitsCount ?? 0 ? .mostVisited : .normal

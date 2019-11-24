@@ -47,11 +47,11 @@ struct CategoryItemsGridViewModel: CategoryItemsViewModel {
         let api = CategoryApi.items(cat: category.title, page: page)
         network.getData(of: api) { result in
             switch result {
-                case .success(let data):
-                    self.updateUI(with: data)
-                case .failure(let error):
-                    log(.error, error.localizedDescription)
-                    self.error.next(error)
+            case let .success(data):
+                self.updateUI(with: data)
+            case let .failure(error):
+                log(.error, error.localizedDescription)
+                self.error.next(error)
             }
             self.showProgress.next(false)
         }

@@ -8,13 +8,14 @@
 
 import UIKit
 
-protocol UICell:class {
+protocol UICell: class {
     associatedtype Model
     func setData(with model: Model)
-    static var identifier:String{get}
+    static var identifier: String { get }
 }
-extension UICell{
-    static var identifier:String {
+
+extension UICell {
+    static var identifier: String {
         return String(describing: self)
     }
 }
